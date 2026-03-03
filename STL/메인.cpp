@@ -32,6 +32,6 @@ void save(const std::string& fname)
 	std::ifstream in{ fname };
 	std::ofstream out{ "2026년 1학기 STL 월56화78", std::ios::app };
 	std::copy(std::istreambuf_iterator<char>{in}, {},
-		std::ostream_iterator);
+		std::ostream_iterator); <char>{out});
 
 }
