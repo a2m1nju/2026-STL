@@ -12,14 +12,26 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <algorithm>
+//#include "save.h"
+
+void save(const std::string&); // 선언문
 
 int main()
 {
 	std::cout << "26.03.03" << '\n';
 
-	//void save(const char[9]);
-	//voud save(const char*);
-	void save(const std::string&); // 선언문
 	save("메인.cpp");
+}
+
+// 여기서 부터 설명 다시
+
+void save(const std::string& fname)
+{
+	std::ifstream in{ fname };
+	std::ofstream out{ "2026년 1학기 STL 월56화78", std::ios::app };
+	std::copy(std::istreambuf_iterator<char>{in}, {},
+		std::ostream_iterator);
 
 }
