@@ -8,10 +8,8 @@
 // 프로젝트 설정 - C++언어 표준 - /std:c++latest
 //               - C/C++ 언어 - SDL 검사 - 아니오
 
-// [메모]
-// c++ 에서 template의 역할은 무엇인가? - Generic Programming 구현하는 핵심
-// C++언어의 paradigm 
-// 다음주 - 많은 수의 자료를 다루기
+// [오늘 할 부분]
+//tmeplate
 
 #include <iostream>
 #include <string>
@@ -19,27 +17,10 @@
 using namespace std;
 
 template <class T>
-T add(const T& a, const T& b) {
+T add(T a, T b) {
 	return a + b;
 }
 
-/*
-template <>
-string add<string>(string a, string b) {
-	return a + b;
-}
-
-이렇게 쓰면 안됨
-메모리가 얼마나 필요할지 모르니깐 
-
-template <>
-string add<string>(const string& a, const string& b) {
-	return string (a + b);  // RVO
-}
-
-이런식으로 작성해야함
-
-*/
 
 int main()
 {
@@ -53,3 +34,8 @@ int main()
 	save("메인.cpp");
 }
 
+/*
+이렇게 답을 내면 0점임
+
+
+*/

@@ -18,7 +18,19 @@
     <ClCompile Include="메인.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="save.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1-2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1-3.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1-4.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="2.cpp">
@@ -27,16 +39,22 @@
     <ClCompile Include="3.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="save.cpp">
+    <ClCompile Include="3-1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="4.cpp">
+    <ClCompile Include="3-2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="3-3.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="3-4.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="save.h">
-      <Filter>소스 파일</Filter>
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

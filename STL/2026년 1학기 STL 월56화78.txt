@@ -1,0 +1,1236 @@
+// 저장한 시간 
+
+/*
+2026년 1학기 STL 월56 화78
+3/9 1주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// 한 학기 강의를 자동 저장하는 save 함수를 만든다,
+
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <algorithm>
+//#include "save.h"
+using namespace std;
+
+void save(const std::string&); // 선언문
+
+/*
+사용하지 말아야할 자료형 -> 대체할 수 있음 -> zero-overhead
+1. char* -> sting : 이런 자료형이 할 수 있는게 없음
+char* name = '2026';   ->     
+2. T* -> smart pointer를 사용할 것
+3. T[] -> 버퍼오버플로우 문제
+*/ 
+
+int main()
+{
+	std::cout << "26.03.09" << '\n';
+
+	save("메인.cpp");
+}
+
+// 여기서 부터 설명 다시
+// fname -> naming covention
+
+void save(const std::string& fname)
+{
+	std::ifstream in{ fname }; // 물리적으로 저장된 파일은 fname에 들어있음 -> RAII패턴
+	// fname의 관리를 in?이 해줌?
+	// in.colse() -> 이렇게 절대 쓰면 안됨
+	if (not in) { // ! -> 이걸로 쓰지 말기
+		cout << fname << "- 열 수 없음" << '\n';
+		exit(2026); // return 2026으로 ㄴㄴ
+	}
+
+	cout <<" " " << fname << " " " << "를 저장합니다." << '\n';
+
+	std::ofstream out{ "2026년 1학기 STL 월56화78.txt", std::ios::app };
+	// if 쓸 필요가 없음 -> 없으면 새로 만들고 있으면 덮어씀
+
+
+	std::copy(std::istreambuf_iterator<char>{in}, {},
+		std::ostream_iterator <char>{out});
+
+
+
+
+}
+
+========================================
+저장한 시간 - 
+========================================
+
+// 저장한 시간 
+
+/*
+2026년 1학기 STL 월56 화78
+3/9 1주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// 한 학기 강의를 자동 저장하는 save 함수를 만든다,
+
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <algorithm>
+//#include "save.h"
+using namespace std;
+
+void save(const std::string&); // 선언문
+
+/*
+사용하지 말아야할 자료형 -> 대체할 수 있음 -> zero-overhead
+1. char* -> sting : 이런 자료형이 할 수 있는게 없음
+char* name = '2026';   ->     
+2. T* -> smart pointer를 사용할 것
+3. T[] -> 버퍼오버플로우 문제
+*/ 
+
+int main()
+{
+	std::cout << "26.03.09" << '\n';
+
+	save("메인.cpp");
+}
+
+// 여기서 부터 설명 다시
+// fname -> naming covention
+
+void save(const std::string& fname)
+{
+	std::ifstream in{ fname }; // 물리적으로 저장된 파일은 fname에 들어있음 -> RAII패턴
+	// fname의 관리를 in?이 해줌?
+	// in.colse() -> 이렇게 절대 쓰면 안됨
+	if (not in) { // ! -> 이걸로 쓰지 말기
+		cout << fname << "- 열 수 없음" << '\n';
+		exit(2026); // return 2026으로 ㄴㄴ
+	}
+
+	cout <<" " " << fname << " "를 저장합니다." << '\n';
+
+	std::ofstream out{ "2026년 1학기 STL 월56화78.txt", std::ios::app };
+	// if 쓸 필요가 없음 -> 없으면 새로 만들고 있으면 덮어씀
+
+	out << endl << endl;
+	out << "========================================" << endl;
+	out << "저장한 시간 - " << endl;
+	out << "========================================" << endl;
+	out << endl;
+
+
+	std::copy(std::istreambuf_iterator<char>{in}, {},
+		std::ostream_iterator <char>{out});
+
+
+
+
+}
+
+========================================
+저장한 시간 - 
+========================================
+
+// 저장한 시간 
+
+/*
+2026년 1학기 STL 월56 화78
+3/9 1주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// 한 학기 강의를 자동 저장하는 save 함수를 만든다,
+
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <chrono>
+//#include "save.h"
+using namespace std;
+
+void save(const std::string&); // 선언문
+
+/*
+사용하지 말아야할 자료형 -> 대체할 수 있음 -> zero-overhead
+1. char* -> sting : 이런 자료형이 할 수 있는게 없음
+char* name = '2026';   ->     
+2. T* -> smart pointer를 사용할 것
+3. T[] -> 버퍼오버플로우 문제
+*/ 
+
+int main()
+{
+	std::cout << "26.03.09" << '\n';
+
+	save("메인.cpp");
+}
+
+// 여기서 부터 설명 다시
+// fname -> naming covention
+
+void save(const std::string& fname)
+{
+	std::ifstream in{ fname }; // 물리적으로 저장된 파일은 fname에 들어있음 -> RAII패턴
+	// fname의 관리를 in?이 해줌?
+	// in.colse() -> 이렇게 절대 쓰면 안됨
+	if (not in) { // ! -> 이걸로 쓰지 말기
+		cout << fname << "- 열 수 없음" << '\n';
+		exit(2026); // return 2026으로 ㄴㄴ
+	}
+
+	cout << fname << " 를 저장합니다." << '\n';
+
+	std::ofstream out{ "2026년 1학기 STL 월56화78.txt", std::ios::app };
+	// if 쓸 필요가 없음 -> 없으면 새로 만들고 있으면 덮어씀
+
+	//chrono::system_clock::time_point::now = chrono:;system_clock::now() 
+	// time epoch로 부터 1초마다 증가한 tick 수
+	auto now = chrono::system_clock::now();
+
+	cout << now << endl;
+
+	out << endl << endl;
+	out << "========================================" << endl;
+	out << "저장한 시간 - " << endl;
+	out << "========================================" << endl;
+	out << endl;
+
+
+	std::copy(std::istreambuf_iterator<char>{in}, {},
+		std::ostream_iterator <char>{out});
+
+
+
+
+}2026-03-09 14:21:56.9967820
+
+
+========================================
+저장한 시간 - 2026-03-09 14:21:56.9967820
+========================================
+
+// 저장한 시간 
+
+/*
+2026년 1학기 STL 월56 화78
+3/9 1주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// 한 학기 강의를 자동 저장하는 save 함수를 만든다,
+
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <chrono>
+//#include "save.h"
+using namespace std;
+
+void save(const std::string&); // 선언문
+
+/*
+사용하지 말아야할 자료형 -> 대체할 수 있음 -> zero-overhead
+1. char* -> sting : 이런 자료형이 할 수 있는게 없음
+char* name = '2026';   ->     
+2. T* -> smart pointer를 사용할 것
+3. T[] -> 버퍼오버플로우 문제
+*/ 
+
+int main()
+{
+	std::cout << "26.03.09" << '\n';
+
+	save("메인.cpp");
+}
+
+// 여기서 부터 설명 다시
+// fname -> naming covention
+
+void save(const std::string& fname)
+{
+	std::ifstream in{ fname }; // 물리적으로 저장된 파일은 fname에 들어있음 -> RAII패턴
+	// fname의 관리를 in?이 해줌?
+	// in.colse() -> 이렇게 절대 쓰면 안됨
+	if (not in) { // ! -> 이걸로 쓰지 말기
+		cout << fname << "- 열 수 없음" << '\n';
+		exit(2026); // return 2026으로 ㄴㄴ
+	}
+
+	cout << fname << " 를 저장합니다." << '\n';
+
+	std::ofstream out{ "2026년 1학기 STL 월56화78.txt", std::ios::app };
+	// if 쓸 필요가 없음 -> 없으면 새로 만들고 있으면 덮어씀
+
+	//chrono::system_clock::time_point::now = chrono:;system_clock::now() 
+	// time epoch로 부터 1초마다 증가한 tick 수
+	auto now = chrono::system_clock::now(); // 그리니치 천문대 시간
+
+	using namespace std::chrono_literals;
+	out << now + 9h << endl;
+
+	out << endl << endl;
+	out << "========================================" << endl;
+	out << "저장한 시간 - " <<now + 9h << endl;
+	out << "========================================" << endl;
+	out << endl;
+
+
+	std::copy(std::istreambuf_iterator<char>{in}, {},
+		std::ostream_iterator <char>{out});
+
+
+
+
+}2026-03-09 14:23:02.4350365
+
+
+========================================
+저장한 시간 - 2026-03-09 14:23:02.4350365
+========================================
+
+// 저장한 시간 
+
+/*
+2026년 1학기 STL 월56 화78
+3/9 1주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// 한 학기 강의를 자동 저장하는 save 함수를 만든다,
+
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <chrono>
+//#include "save.h"
+using namespace std;
+
+void save(const std::string&); // 선언문
+
+/*
+사용하지 말아야할 자료형 -> 대체할 수 있음 -> zero-overhead
+1. char* -> sting : 이런 자료형이 할 수 있는게 없음
+char* name = '2026';   ->     
+2. T* -> smart pointer를 사용할 것
+3. T[] -> 버퍼오버플로우 문제
+*/ 
+
+int main()
+{
+	std::cout << "26.03.09" << '\n';
+
+	save("메인.cpp");
+}
+
+// 여기서 부터 설명 다시
+// fname -> naming covention
+
+void save(const std::string& fname)
+{
+	std::ifstream in{ fname }; // 물리적으로 저장된 파일은 fname에 들어있음 -> RAII패턴
+	// fname의 관리를 in?이 해줌?
+	// in.colse() -> 이렇게 절대 쓰면 안됨
+	if (not in) { // ! -> 이걸로 쓰지 말기
+		cout << fname << "- 열 수 없음" << '\n';
+		exit(2026); // return 2026으로 ㄴㄴ
+	}
+
+	cout << fname << " 를 저장합니다." << '\n';
+
+	std::ofstream out{ "2026년 1학기 STL 월56화78.txt", std::ios::app };
+	// if 쓸 필요가 없음 -> 없으면 새로 만들고 있으면 덮어씀
+
+	//chrono::system_clock::time_point::now = chrono:;system_clock::now() 
+	// time epoch로 부터 1초마다 증가한 tick 수
+	auto now = chrono::system_clock::now(); // 그리니치 천문대 시간
+
+	using namespace std::chrono_literals;
+	out << now + 9h << endl;
+
+	out << endl << endl;
+	out << "========================================" << endl;
+	out << "저장한 시간 - " << now + 9h << endl;
+	out << "========================================" << endl;
+	out << endl;
+
+
+	std::copy(std::istreambuf_iterator<char>{in}, {},
+		std::ostream_iterator <char>{out});
+
+
+
+
+}2026-03-09 14:52:23.7838381
+
+
+========================================
+저장한 시간 - 2026-03-09 14:52:23.7838381
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/9 1주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [오늘 할 부분]
+// save 파일 분리
+// template
+
+#include <iostream>
+#include "save.h"
+
+void save(const std::string&); 
+
+int main()
+{
+	std::cout << "26.03.09" << '\n';
+
+	save("메인.cpp");
+}
+
+2026-03-09 14:53:05.6068345
+
+
+========================================
+저장한 시간 - 2026-03-09 14:53:05.6068345
+========================================
+
+// 한 학기 강의를 저장하기 위한 함수
+// 2026.03.09 
+
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <chrono>
+#include "save.h"
+
+void save(const std::string& fname)
+{
+	std::ifstream in{ fname }; 
+
+	if (not in) { 
+		std::cout << fname << "- 열 수 없음" << '\n';
+		exit(2026); 
+	}
+
+	std::cout << fname << " 를 저장합니다." << '\n';
+
+	std::ofstream out{ "2026년 1학기 STL 월56화78.txt", std::ios::app };
+
+	auto now = std::chrono::system_clock::now();
+
+	using namespace std::chrono_literals;
+	out << now + 9h << std::endl;
+
+	out << std::endl << std::endl;
+	out << "========================================" << std::endl;
+	out << "저장한 시간 - " << now + 9h << std::endl;
+	out << "========================================" << std::endl;
+	out << std::endl;
+
+
+	std::copy(std::istreambuf_iterator<char>{in}, {},
+		std::ostream_iterator <char>{out});
+
+}2026-03-09 14:53:05.6125972
+
+
+========================================
+저장한 시간 - 2026-03-09 14:53:05.6125972
+========================================
+
+// 한 학기 강의를 저장하기 위한 함수
+// 2026.03.09 
+#pragma once
+void save(const std::string& fname);2026-03-09 14:53:05.6182049
+
+
+========================================
+저장한 시간 - 2026-03-09 14:53:05.6182049
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/9 1주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [오늘 할 부분]
+// save 파일 분리
+// template
+
+#include <iostream>
+#include "save.h"
+
+void save(const std::string&); 
+
+int main()
+{
+	std::cout << "26.03.09" << '\n';
+
+	save("save.cpp");
+	save("save.h");
+	save("메인.cpp");
+}
+
+2026-03-09 15:15:50.1108074
+
+
+========================================
+저장한 시간 - 2026-03-09 15:15:50.1108074
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/9 1주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [오늘 할 부분]
+// save 파일 분리
+// template
+
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+void chagge(int&, int&);
+
+void change(int& p, int& q) {
+	int temp{ p };
+	p = q;
+	q = temp;
+	// 임시저장소에 값을 저장 -> 어쩌고 -> 값 복구
+}
+
+int main()
+{
+	// cout << "main - " << addressof(main) << endl;
+	// cout << "save - " << addressof(save) << endl;
+	
+	// [문제 1] 의도대로 실행되게 하자
+	// change 를 호출해보자 -> 2, 1로 출력되어야 함
+	// change -> 함수 이외에 호출할 수 있는 타입?
+
+	int a{ 1 }, b{ 2 };
+	//cout <<"a - " << addressof(a) << endl;
+	change (a, b);
+
+	
+
+	cout << a << ", " << b << endl;
+
+	save("메인.cpp");
+}
+
+2026-03-09 15:16:04.7961184
+
+
+========================================
+저장한 시간 - 2026-03-09 15:16:04.7961184
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/9 1주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [오늘 할 부분]
+// save 파일 분리
+// template
+
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+void change(int&, int&);
+
+void change(int& p, int& q) {
+	int temp{ p };
+	p = q;
+	q = temp;
+	// 임시저장소에 값을 저장 -> 어쩌고 -> 값 복구
+}
+
+int main()
+{
+	// cout << "main - " << addressof(main) << endl;
+	// cout << "save - " << addressof(save) << endl;
+	
+	// [문제 1] 의도대로 실행되게 하자
+	// change 를 호출해보자 -> 2, 1로 출력되어야 함
+	// change -> 함수 이외에 호출할 수 있는 타입?
+
+	int a{ 1 }, b{ 2 };
+	//cout <<"a - " << addressof(a) << endl;
+	change (a, b);
+
+	
+
+	cout << a << ", " << b << endl;
+
+	save("메인.cpp");
+}
+
+2026-03-10 15:44:00.6153673
+
+
+========================================
+저장한 시간 - 2026-03-10 15:44:00.6153673
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/10 2주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [오늘 할 부분]
+
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+class Dog; // forward declaration
+void change(Dog&, Dog&);
+
+
+
+class Dog {
+public:
+	Dog() = default;
+	Dog(int n) : num{ n } {}
+
+	/*
+	
+	*/
+	operator int() {
+		return num;
+	}
+	
+
+private:
+	int num;
+};
+
+void change(Dog& p, Dog& q) {
+	Dog temp{ p };
+	p = q; // p.operator = (q)
+	q = temp;
+}
+
+int main()
+{
+	// [문제 2] 의도대로 실행되게 하자
+	// Dog는 class로 작성하자.
+	// using Dog = int; -> 이렇게 하지 말라는 뜻 ㅋㅋ
+	// #define Dag int -> 이것도 사용 ㄴㄴ
+	{
+		Dog a{ 1 }, b{ 2 };
+		change(a, b);
+		cout << a << ", " << b << endl;
+
+	}
+
+	save("메인.cpp");
+}
+
+2026-03-10 15:51:21.1134109
+
+
+========================================
+저장한 시간 - 2026-03-10 15:51:21.1134109
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/10 2주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [오늘 할 부분]
+
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+class Dog; // forward declaration
+void change(Dog&, Dog&);
+
+class Dog {
+public:
+	Dog() = default;
+	Dog(int n) : num{ n } {}
+
+	/*
+	이런 코드는 사용하면 안됨
+	operator int() {
+		return num;
+	}
+	*/
+
+	
+
+private:
+	int num;
+	friend ostream& operator << (ostream& os, const Dog& dog) {
+		return os << &dog;
+	}
+};
+
+void change(Dog& p, Dog& q) {
+	Dog temp{ p };
+	p = q; // p.operator = (q)
+	q = temp;
+}
+
+int main()
+{
+	// [문제 2] 의도대로 실행되게 하자
+	{
+		Dog a{ 1 }, b{ 2 }; // Dog a = 1, b = 2; -> 이렇게 쓰면 안됨
+		change(a, b);
+		cout << a << ", " << b << endl;
+
+	}
+
+	save("메인.cpp");
+}
+
+2026-03-10 16:21:32.0666310
+
+
+========================================
+저장한 시간 - 2026-03-10 16:21:32.0666310
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/10 2주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [오늘 할 부분]
+//tmeplate
+
+#include <iostream>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+class Dog; // forward declaration
+
+// 템플릿 함수의 선언 
+// -> 소스코드를 찍어내기 위한 틀
+/*
+template <class 자료형, class 자료동생>
+void change(자료형&, 자료동생&);
+*/
+
+template <class T>
+// template < class 구간의 시작, class 구간끝 , class 함수>
+void change(T&, T&);
+
+
+void change(int& p, int& q) {
+	int temp{ p };
+	p = q;
+	q = temp;
+}
+
+class Dog {
+public:
+	Dog() = default;
+	Dog(int n) : num{ n } {}
+
+private:
+	int num;
+	friend ostream& operator << (ostream& os, const Dog& dog) {
+		return os << &dog;
+	}
+};
+
+void change(Dog& p, Dog& q) {
+	Dog temp{ p };
+	p = q; 
+	q = temp;
+}
+
+int main()
+{
+
+
+	{
+		Dog a{ 1 }, b{ 2 }; 
+		change(a, b);
+		cout << a << ", " << b << endl;
+	}
+
+	{
+		int a{ 1 }, b{ 2 };
+		change(a, b);
+		cout << a << ", " << b << endl;
+	}
+
+	save("메인.cpp");
+}
+
+2026-03-10 16:26:24.9711504
+
+
+========================================
+저장한 시간 - 2026-03-10 16:26:24.9711504
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/10 2주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [오늘 할 부분]
+//tmeplate
+
+#include <iostream>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+class Dog; // forward declaration
+
+// 템플릿 함수의 선언 
+// -> 소스코드를 찍어내기 위한 틀
+/*
+template <class 자료형, class 자료동생>
+void change(자료형&, 자료동생&);
+*/
+
+template <class T>
+// template < class 구간의 시작, class 구간끝 , class 함수>
+void change(T&, T&);
+
+
+void change(int& p, int& q) {
+	int temp{ p };
+	p = q;
+	q = temp;
+}
+
+class Dog {
+public:
+	Dog() = default;
+	Dog(int n) : num{ n } {}
+
+private:
+	int num; // int _n -> 미친놈임
+	friend ostream& operator << (ostream& os, const Dog& dog) {
+		return os << dog.num;
+	}
+};
+
+void change(Dog& p, Dog& q) {
+	Dog temp{ p };
+	p = q; 
+	q = temp;
+}
+
+int main()
+{
+
+
+	{
+		Dog a{ 1 }, b{ 2 }; 
+		change(a, b);
+		cout << a << ", " << b << endl;
+	}
+
+	{
+		int a{ 1 }, b{ 2 };
+		change(a, b);
+		cout << a << ", " << b << endl;
+	}
+
+	save("메인.cpp");
+}
+
+2026-03-10 16:47:21.6908543
+
+
+========================================
+저장한 시간 - 2026-03-10 16:47:21.6908543
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/10 2주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [오늘 할 부분]
+//tmeplate
+
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+// 템플릿 함수 선언과 정의를 분리할 수 없음
+template <class T>
+void change(T& p, T& q) {
+	T temp{ p };
+	p = q;
+	q = temp;
+}
+
+// double에 대한 specialization
+template <>
+void change(double& p, double& q) {
+	cout << "컴파일러가 찍어낸 코드" << endl;
+	double temp{ p };
+	p = q;
+	q = temp;
+}
+
+int main()
+{
+	double a, b;
+	change(a, b);  // 뭘 호출해야 하나? -> 함수호출우선순위 결정
+	// change<double>(a, b); -> 원래 이렇게 명시하는데 알아서 유추하니깐 빼고 씀
+
+	// change("S", "T");
+
+
+	save("메인.cpp");
+}
+
+2026-03-10 16:48:01.5412772
+
+
+========================================
+저장한 시간 - 2026-03-10 16:48:01.5412772
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/10 2주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [오늘 할 부분]
+//tmeplate
+
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+// 템플릿 함수 선언과 정의를 분리할 수 없음
+template <class T>
+void change(T& p, T& q) {
+	T temp{ p };
+	p = q;
+	q = temp;
+}
+
+// double에 대한 specialization
+template <>
+void change(double& p, double& q) {
+	cout << "컴파일러가 찍어낸 코드" << endl;
+	double temp{ p };
+	p = q;
+	q = temp;
+}
+
+int main()
+{
+	double a, b;
+	change(a, b);  // 뭘 호출해야 하나? -> 함수호출우선순위 결정
+	// change<double>(a, b); -> 원래 이렇게 명시하는데 알아서 유추하니깐 빼고 씀
+
+	// change("S", "T");
+
+
+	save("메인.cpp");
+}
+
+2026-03-10 16:53:01.2483461
+
+
+========================================
+저장한 시간 - 2026-03-10 16:53:01.2483461
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/10 2주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [오늘 할 부분]
+//tmeplate
+
+#include <iostream>
+#include <string>
+#include "save.h"
+using namespace std;
+
+// 템플릿 함수 선언과 정의를 분리할 수 없음
+template <class T>
+void change(T& p, T& q) {
+	T temp{ p };
+	p = q;
+	q = temp;
+}
+
+// double에 대한 specialization
+template <>
+void change(double& p, double& q) {
+	cout << "컴파일러가 찍어낸 코드" << endl;
+	double temp{ p };
+	p = q;
+	q = temp;
+}
+
+int main()
+{
+	double a, b;
+	change(a, b);  // 뭘 호출해야 하나? -> 함수호출우선순위 결정
+	// change<double>(a, b); -> 원래 이렇게 명시하는데 알아서 유추하니깐 빼고 씀
+
+	string s{ "2026년" }, t{ "3월 10일" };
+	change(s, t);
+
+
+	save("메인.cpp");
+}
+
+2026-03-10 16:53:52.6706816
+
+
+========================================
+저장한 시간 - 2026-03-10 16:53:52.6706816
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/10 2주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [오늘 할 부분]
+//tmeplate
+
+#include <iostream>
+#include <string>
+#include "save.h"
+using namespace std;
+
+// 템플릿 함수 선언과 정의를 분리할 수 없음
+template <class T>
+void change(T& p, T& q) {
+	cout << "이 문장을 보면 컴파일러가 열일한줄 알아라" << endl;
+	T temp{ p };
+	p = q;
+	q = temp;
+}
+
+// double에 대한 specialization
+template <>
+void change(double& p, double& q) {
+	cout << "컴파일러가 찍어낸 코드" << endl;
+	double temp{ p };
+	p = q;
+	q = temp;
+}
+
+int main()
+{
+	double a, b;
+	change(a, b);  // 뭘 호출해야 하나? -> 함수호출우선순위 결정
+	// change<double>(a, b); -> 원래 이렇게 명시하는데 알아서 유추하니깐 빼고 씀
+
+	string s{ "2026년" }, t{ "3월 10일" };
+	change(s, t);
+
+
+	save("메인.cpp");
+}
+
+2026-03-10 17:06:54.7179891
+
+
+========================================
+저장한 시간 - 2026-03-10 17:06:54.7179891
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/10 2주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [오늘 할 부분]
+//tmeplate
+
+#include <iostream>
+#include <string>
+#include "save.h"
+using namespace std;
+
+template <class T>
+T add(T a, T b) {
+	return a + b;
+}
+
+
+int main()
+{
+	// [문제] template 함수 add를 한 개 만들어 실행되게 하라.
+	// 
+	cout << add(1, 2) << endl;
+
+	cout << add("2026년"s, "3월 10일"s) << endl;
+	// cout << add(string{ "2026년" }, string{ "3월 10일" }) << endl;
+
+
+	save("메인.cpp");
+}
+
+2026-03-10 17:11:59.8499233
+
+
+========================================
+저장한 시간 - 2026-03-10 17:11:59.8499233
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/10 2주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [오늘 할 부분]
+//tmeplate
+
+#include <iostream>
+#include <string>
+#include "save.h"
+using namespace std;
+
+template <class T>
+T add(const T& a, const T& b) {
+	return a + b;
+}
+
+/*
+template <>
+string add<string>(string a, string b) {
+	return a + b;
+}
+
+이렇게 쓰면 안됨
+메모리가 얼마나 필요할지 모르니깐 
+
+template <>
+string add<string>(const string& a, const string& b) {
+	return string (a + b);  // RVO
+}
+
+이런식으로 작성해야함
+
+*/
+
+int main()
+{
+	// [문제] template 함수 add를 한 개 만들어 실행되게 하라.
+	cout << add(1, 2) << endl;
+
+	cout << add("2026년"s, "3월 10일"s) << endl;
+	// cout << add(string{ "2026년" }, string{ "3월 10일" }) << endl;
+
+
+	save("메인.cpp");
+}
+
