@@ -33,7 +33,7 @@ int main()
 		print("{:8}", num);
 	}
 
-	int* p = max_element(begin(a), end(a)); 
+	int* p = max_element(begin(a), end(a));
 	//max_element(&a[0], &a[1000]); -> 숫자를 직접 적은 코드는 위험한 코드
 	cout << endl;
 	cout << "가장 큰 값 : " << *p << endl;
