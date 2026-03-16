@@ -17,7 +17,7 @@
 #include "save.h"
 using namespace std;
 
-default_random_engine dre{ random_device{}()};
+default_random_engine dre{ random_device{}() };
 // default_random_engine dre{ random_device{생성}(호출)};
 uniform_int_distribution uid{ 0, 9999 };
 
@@ -34,8 +34,7 @@ int main()
 		print("{:8}", num);
 	}
 
-	int* p = max_element(begin(a), end(a)); 
-	//max_element(&a[0], &a[1000]); -> 숫자를 직접 적은 코드는 위험한 코드
+	int* p = max_element(begin(a), end(a));
 	cout << endl;
 	cout << "가장 큰 값 : " << *p << endl;
 
