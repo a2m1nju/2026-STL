@@ -1848,3 +1848,155 @@ int main()
 	save("메인.cpp");
 }
 
+2026-03-16 14:45:28.5902989
+
+
+========================================
+저장한 시간 - 2026-03-16 14:45:28.5902989
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/16 2주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+
+#include <iostream>
+#include <random>
+#include <print>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+default_random_engine dre;
+uniform_int_distribution uid{ 0, 9999 };
+
+int main()
+{
+	int a[1000];
+
+	for (int& num : a) {
+		num = uid(dre);
+	}
+
+	for (int num : a) {
+		print("{:8}", num);
+	}
+
+	// 가장 작은 값과 큰 값을 찾아 화면에 출력하라
+	int* p = max_element(begin(a), end(a)); 
+	int* q = min_element(begin(a), end(a));
+
+
+	cout << endl;
+	cout << "가장 큰 값 : " << *p << endl;
+	cout << "가장 작은 값 : " << *q << endl;
+
+	save("메인.cpp");
+}
+
+2026-03-16 14:57:42.1259689
+
+
+========================================
+저장한 시간 - 2026-03-16 14:57:42.1259689
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/16 2주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+
+#include <iostream>
+#include <random>
+#include <print>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+default_random_engine dre;
+uniform_int_distribution uid{ 0, 9999 };
+
+int main()
+{
+	int a[1000];
+
+	for (int& num : a) {
+		num = uid(dre);
+	}
+
+	for (int num : a) {
+		print("{:8}", num);
+	}
+
+	// [문제] 가장 작은 값과 큰 값을 찾아 화면에 출력하라
+	pair<int*, int*> res = minmax_element(begin(a), end(a));
+	cout << "작은 값 : " << *(res.first) << "큰 값 : " << *(res.second) << endl;
+
+
+	save("메인.cpp");
+}
+
+2026-03-16 14:58:08.7106355
+
+
+========================================
+저장한 시간 - 2026-03-16 14:58:08.7106355
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/16 2주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+
+#include <iostream>
+#include <random>
+#include <print>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+default_random_engine dre;
+uniform_int_distribution uid{ 0, 9999 };
+
+int main()
+{
+	int a[1000];
+
+	for (int& num : a) {
+		num = uid(dre);
+	}
+
+	for (int num : a) {
+		print("{:8}", num);
+	}
+
+	// [문제] 가장 작은 값과 큰 값을 찾아 화면에 출력하라
+	pair<int*, int*> res = minmax_element(begin(a), end(a));
+	cout << endl;
+	cout << "작은 값 : " << *(res.first) << " " << "큰 값 : " << *(res.second) << endl;
+
+
+	save("메인.cpp");
+}
+
