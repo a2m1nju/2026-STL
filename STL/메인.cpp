@@ -25,8 +25,16 @@ uniform_int_distribution uid{ 0, 9999 };
 int main()
 {
 	// [문제] 임의의 값을 갖는 int 1000개를 만들어라
-	for (int i = 0; i < 1000; ++i) {
-		print("{:8}", uid(dre));
+	// int[1000]; -> 이런 형식은 반칙?
+	int a[1000];
+
+	for (int& num : a) {
+		num = uid(dre);			
+	}
+
+
+	for (int num : a) {
+		print("{:8}", num);
 	}
 
 
