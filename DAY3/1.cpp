@@ -22,9 +22,6 @@ public:
 	Dog() = default;
 	Dog(int n) : num{ n } {}
 
-	/*
-
-	*/
 	operator int() {
 		return num;
 	}

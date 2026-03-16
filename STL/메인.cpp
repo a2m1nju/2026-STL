@@ -1,6 +1,6 @@
 /*
 2026년 1학기 STL 월56 화78
-3/10 2주 1일
+3/16 2주 2일
 */
 
 // 컴파일 환경 - Release / x64
@@ -14,40 +14,21 @@
 // 다음주 - 많은 수의 자료를 다루기
 
 #include <iostream>
-#include <string>
+#include <random>
+#include <print>
 #include "save.h"
 using namespace std;
 
-template <class T>
-T add(const T& a, const T& b) {
-	return a + b;
-}
-
-/*
-template <>
-string add<string>(string a, string b) {
-	return a + b;
-}
-
-이렇게 쓰면 안됨
-메모리가 얼마나 필요할지 모르니깐 
-
-template <>
-string add<string>(const string& a, const string& b) {
-	return string (a + b);  // RVO
-}
-
-이런식으로 작성해야함
-
-*/
+default_random_engine dre;
+uniform_int_distribution uid{ 0, 9999 };
 
 int main()
 {
-	// [문제] template 함수 add를 한 개 만들어 실행되게 하라.
-	cout << add(1, 2) << endl;
+	// [문제] 임의의 값을 갖는 int 1000개를 만들어라
+	for (int i = 0; i < 1000; ++i) {
+		print("{:8}", uid(dre));
+	}
 
-	cout << add("2026년"s, "3월 10일"s) << endl;
-	// cout << add(string{ "2026년" }, string{ "3월 10일" }) << endl;
 
 
 	save("메인.cpp");
