@@ -34,8 +34,11 @@ int main()
 
 	// [문제] 가장 작은 값과 큰 값을 찾아 화면에 출력하라
 	pair<int*, int*> res = minmax_element(begin(a), end(a));
+	// auto [작은 값, 큰 값] = minmax_element(begin(a), end(a));
+	// systatic sugar인 structured binding을 사용하면 pair를 이렇게 쓸 수 있다
 	cout << endl;
 	cout << "작은 값 : " << *(res.first) << " " << "큰 값 : " << *(res.second) << endl;
+	// cout << "작은 값 : " << 작은 값) << " " << "큰 값 : " << 큰 값 << endl;
 
 
 	save("메인.cpp");
