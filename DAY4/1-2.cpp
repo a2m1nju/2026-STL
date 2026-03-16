@@ -24,28 +24,19 @@ uniform_int_distribution uid{ 0, 9999 };
 
 int main()
 {
-	// [문제]  가장 큰 값을 찾아 출력해라
+	// [문제] 임의의 값을 갖는 int 1000개를 만들어라
 	// int[1000]; -> 이런 형식은 반칙?
 	int a[1000];
 
 	for (int& num : a) {
-		num = uid(dre);			
+		num = uid(dre);
 	}
+
 
 	for (int num : a) {
 		print("{:8}", num);
 	}
 
-	int maxVal{ numeric_limits<int>::min() };
-
-	for (int num : a) {
-		if (maxVal < num) {
-			maxVal = num;
-		}
-	}
-
-	cout << endl;
-	cout << "가장 큰 값 : " << maxVal << endl;
 
 
 	save("메인.cpp");

@@ -29,7 +29,7 @@ int main()
 	int a[1000];
 
 	for (int& num : a) {
-		num = uid(dre);			
+		num = uid(dre);
 	}
 
 	for (int num : a) {
