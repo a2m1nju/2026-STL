@@ -1,6 +1,6 @@
 /*
 2026년 1학기 STL 월56 화78
-3/16 2주 2일
+3/17 3주 1일
 */
 
 // 컴파일 환경 - Release / x64
@@ -9,62 +9,25 @@
 //               - C/C++ 언어 - SDL 검사 - 아니오
 
 // [메모]
-// 다음 시간 멤버 설명부터 다시
+// 많은 수의 자료 다루기 - FILE I/O - binary I/O
 
 #include <iostream>
-#include <random>
-#include <print>
-#include <algorithm>
+#include <fstream>
 #include <array>
+#include <algorithm>
 #include "save.h"
 using namespace std;
 
-default_random_engine dre;
-uniform_int_distribution uid{ 0, 9999 };
-
-template<class T, int N>
-class myArray {
-public:
-	size_t size() const {
-		return N;
-	}
-
-	int& operator[](int idx) {
-		return a[idx];
-	}
-
-	T* begin() {
-		return &a[0];
-	}
-
-	T* end() {
-		return &a[n];
-	}
-private:
-	T a[N];
-};
-
 int main()
 {
-	myArray<int, 1000> a;
+	// [문제] int로 표현할 수 있는 값은 -2147483648 ~ 2147483647 까지 이다.
+	// 모든 int 값을 하나도 빼지않고 한 개씩 파일에 txt로 기록하였다.
+	// 값과 값은 빈칸 한 개로 구분하였다.
+	// 이렇게 하면 int를 한 개 기록하는데 평균 몇 바이트가 필요한지 계산하라.
 
-	for (int i = 0; i < a.size(); ++i) {
-		a[i] = uid(dre);
-	}
 
-	for (int& num : a) {
-		num = uid(dre);
-	}
 
-	for (int num : a) {
-		print("{:8}", num);
-	}
-
-	auto [minPos, maxPos] = minmax_element(a.begin(), a.end());
-	cout << endl;
-	cout << "작은 값 : " << *minPos << " " << "큰 값 : " << *maxPos << endl;
 
 
 	save("메인.cpp");
 }
-

@@ -2108,3 +2108,267 @@ int main()
 	save("메인.cpp");
 }
 
+2026-03-17 16:01:19.3464203
+
+
+========================================
+저장한 시간 - 2026-03-17 16:01:19.3464203
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/17 3주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 많은 수의 자료 다루기 - FILE I/O
+
+#include <iostream>
+#include<fstream>
+#include <random>
+#include "save.h"
+using namespace std;
+
+default_random_engine dre;
+uniform_int_distribution <int> uid{ numeric_limits<int>::min(), numeric_limits<int>::max() };
+
+int main()
+{
+	// [문제] 랜덤 int값 천만개를 다음과 같이 "int 천만개.txt" 파일에 저장하였다.
+
+	ofstream out{ "int천만개.txt" };
+	for (int i = 0; i < 100; ++i) {
+		out << uid(dre) << ' ';
+	}
+	
+
+	save("메인.cpp");
+}
+
+2026-03-17 16:05:26.0029296
+
+
+========================================
+저장한 시간 - 2026-03-17 16:05:26.0029296
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/17 3주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 많은 수의 자료 다루기 - FILE I/O
+
+#include <iostream>
+#include<fstream>
+#include <random>
+#include "save.h"
+using namespace std;
+
+default_random_engine dre;
+uniform_int_distribution <int> uid{ numeric_limits<int>::min(), numeric_limits<int>::max() };
+
+int main()
+{
+	// [문제] 랜덤 int값 천만개를 다음과 같이 "int 천만개.txt" 파일에 저장하였다.
+
+	ofstream out{ "int천만개.txt" };
+	for (int i = 0; i < 1000'0000; ++i) {    
+		out << uid(dre) << endl;
+	}
+	
+
+	save("메인.cpp");
+}
+
+2026-03-17 16:08:34.9674903
+
+
+========================================
+저장한 시간 - 2026-03-17 16:08:34.9674903
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/17 3주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 많은 수의 자료 다루기 - FILE I/O
+
+#include <iostream>
+#include<fstream>
+#include <random>
+#include "save.h"
+using namespace std;
+
+default_random_engine dre;
+uniform_int_distribution <int> uid{ numeric_limits<int>::min(), numeric_limits<int>::max() };
+
+int main()
+{
+	// [문제] 랜덤 int값 천만개를 다음과 같이 "int 천만개.txt" 파일에 저장하였다.
+
+	ofstream out{ "int천만개.txt" };
+	for (int i = 0; i < 1000'0000; ++i) {    // 119,828,581 bytes
+		out << uid(dre) << '\n';
+	}
+	
+
+	save("메인.cpp");
+}
+2026-03-17 16:39:59.3136157
+
+
+========================================
+저장한 시간 - 2026-03-17 16:39:59.3136157
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/17 3주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 많은 수의 자료 다루기 - FILE I/O
+
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+array<int, 1000'0000> a;
+
+int main()
+{
+	// [문제] "int천만개.txt" 파일에는 int값 천만개가 저장되어있다.
+	// 천만개가 있다는 사실은 틀림없다 - 믿고 쓰자
+	// 가장 작은 값을 찾아 출력하라.
+	
+
+	ifstream in{ "int천만개.txt" };
+	if (not in) {
+		cout << "파일이 업소용" << endl;
+		return 111;
+	}
+
+
+	for (int& num : a) {
+		in >> num;
+	}
+
+	cout << "최소값" << *min_element(begin(a), end(a)) << endl;;
+
+
+	
+	save("메인.cpp");
+}
+2026-03-17 16:52:14.8448571
+
+
+========================================
+저장한 시간 - 2026-03-17 16:52:14.8448571
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/17 3주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 많은 수의 자료 다루기 - FILE I/O
+
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+array<int, 1000'0000> a;
+
+int main()
+{
+	// [문제] "int천만개.txt" 파일에는 int값 천만개가 저장되어있다.
+	// 천만개가 있다는 사실은 틀림없다 - 믿고 쓰자
+	// 가장 작은 값을 찾아 출력하라.
+	
+
+	ifstream in{ "int천만개.txt" };
+	if (not in) {
+		cout << "파일이 업소용" << endl;
+		return 111;
+	}
+
+	cout << "최소값" << *min_element(istream_iterator<int>{in}, {}) << endl;
+
+	
+	save("메인.cpp");
+}
+2026-03-17 17:12:33.3440762
+
+
+========================================
+저장한 시간 - 2026-03-17 17:12:33.3440762
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/17 3주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 많은 수의 자료 다루기 - FILE I/O - binary I/O
+
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+	int num{ 0x01020304 };
+	char* p = (char*)&num;
+	cout << (int)*p++ << endl;
+	cout << (int)*p++ << endl;
+	cout << (int)*p++ << endl;
+	cout << (int)*p++ << endl;
+
+
+	save("메인.cpp");
+}
