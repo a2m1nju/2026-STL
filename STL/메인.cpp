@@ -18,6 +18,7 @@
 #include <string>
 #include <array>
 #include <fstream>
+#include <filesystem>
 #include "save.h"
 using namespace std;
 
@@ -47,23 +48,26 @@ private:
 // 모든 객체를 한번의 write함수로 기록하였다.
 // Dog의 맴버는 위의 코드와 같다
 // 메모리에 모두 읽어오시오
+// 메모리에 읽은 모든 Dog를 화면 출력하라.
 
 
 int main()
 {
+	Dog dog;
+	array<Dog, 1000> dogs;
+
 	ifstream in{ "Dog천마리", ios::binary };
 	if (not in) {
 		cout << "dog no" << endl;
 		return 111;
 	}
 
-	Dog dog;
-	size_t count{};
-	while (in >> dog) {
-		count++;
-	}
+	array<Dog, 1'000> dogs;
+	in.read((char*)dogs.data(), dogs.size() * sizeof(Dog));
 
-	cout << count << endl;
+	for (const Dog dog : dogs) { // 꼭 const를 붙여햐됨
+		cout << dog << endl;
+	}
 
 	save("메인.cpp");
 }
