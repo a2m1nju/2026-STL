@@ -27,9 +27,12 @@ int main()
 	ofstream out("int천만개");
 	// 114'826'203 - text mode
 	// 40'000'000 - 메모리 그대로 저장하면 40MB
-	
-	for (int i{}; i < 1000; ++i) {
-		out << uid(dre) << '\n';
+
+	int num;
+	for (int i{}; i < 1000'0000; ++i) {
+		// out << uid(dre) << '\n';
+		num = uid(dre);
+		out.write(reinterpret_cast<char*>(& num), sizeof(int));
 	}
 
 	save("메인.cpp");
