@@ -27,16 +27,6 @@ uniform_int_distribution uidNameLen{ 10, 30 };
 uniform_int_distribution<int> uidChar{ 'a', 'z' };
 
 class Dog {
-public:
-	Dog() {
-		id = uid(dre);
-		int len = uidNameLen(dre);
-		for (int i = 0; i < len; ++i) {
-			name += uidChar(dre);
-		}
-	}
-
-
 private:
 	string name;  // [10, 30] 사이의 소문자로 구성된 이름
 	size_t id;    // [0, 9999]
@@ -44,17 +34,32 @@ private:
 	friend ostream& operator <<(ostream& os, const Dog& dog) {
 		print(os, "[{:>4}] - {} ", dog.id, dog.name);
 		return os;
+	}
 
+	friend istream& operator >> (istream& is, Dog& dog) {
+		is.read((char*)&dog, sizeof(Dog));
+		return is;
 	}
 };
 
+// [문제] 파일 "Dog천마리"에는 class Dog 객체 1000마리가 저장되어있다.
+// 파일은 binary모드이고 각 객체는 메모리 크기 그대로 stream의 write함수로 기록하였다
+// 모든 객체를 한번의 write함수로 기록하였다.
+// Dog의 맴버는 위의 코드와 같다
+// 메모리에 모두 읽어오시오
+
+
 int main()
 {
-	array<Dog, 1000> dogs;
+	ifstream in{ "Dog천마리", ios::binary };
+	if (not in) {
+		cout << "dog no" << endl;
+		return 111;
+	}
 
-	ofstream out{ "dog천마리",ios::binary };
-	out.write((char*)dogs.data(), dogs.size() * sizeof(Dog));
-
+	Dog dog;
+	in >> dog;
+	cout << dog << endl;
 
 
 	save("메인.cpp");
