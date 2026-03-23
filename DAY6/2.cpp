@@ -33,8 +33,8 @@ int main()
 		return 111;
 	}
 
-	in.read( (char*)(& a[0]), a.size() * sizeof(int));
-	auto[Min_num, Max_Num] = minmax_element(a.begin(), a.end());
+	in.read((char*)(&a[0]), a.size() * sizeof(int));
+	auto [Min_num, Max_Num] = minmax_element(a.begin(), a.end());
 	cout << "작은 값 : " << *Min_num << ", 큰 값 : " << *Max_Num << endl;
 
 	save("메인.cpp");
