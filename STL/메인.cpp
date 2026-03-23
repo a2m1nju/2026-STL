@@ -58,9 +58,12 @@ int main()
 	}
 
 	Dog dog;
-	in >> dog;
-	cout << dog << endl;
+	size_t count{};
+	while (in >> dog) {
+		count++;
+	}
 
+	cout << count << endl;
 
 	save("¸ÞÀÎ.cpp");
 }
