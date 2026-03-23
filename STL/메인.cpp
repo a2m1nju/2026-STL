@@ -12,28 +12,18 @@
 // 많은 수의 자료 다루기 - FILE I/O - binary I/O
 
 #include <iostream>
-#include <random>
 #include <fstream>
+#include <filesystem>
 #include "save.h"
 using namespace std;
 
-default_random_engine dre;
-uniform_int_distribution uid;
+// [문제] 파일 "int천만개"에는 int값 천만개가 저장되어 있다.
+// 파일은 binary 모드로 열었고 int 값은 stream의 write 함수를 사용하여 저장하였다.
+
 
 int main()
 {
-	// [문제] 랜덤 int값 1000개를 화면에 출력하라
-
-	ofstream out("int천만개", ios::binary);
-	// 114'826'203 - text mode
-	// 40'000'000 - 메모리 그대로 저장하면 40MB
-
-	int num;
-	for (int i{}; i < 1000'0000; ++i) {
-		// out << uid(dre) << '\n';
-		num = uid(dre);
-		out.write(reinterpret_cast<char*>(& num), sizeof(int));
-	}
+	std::filesystem::file_size("int천만개") / sizeof(int) << endl;
 
 	save("메인.cpp");
 }
