@@ -9,33 +9,51 @@
 //               - C/C++ 언어 - SDL 검사 - 아니오
 
 // [메모]
-// 많은 수의 자료 다루기 - FILE I/O - binary I/O
+// 많은 수의 자료 다루기 - FILE I/O - binary I/O - class 객체
 
 #include <iostream>
-#include <fstream>
-#include <array>
 #include <algorithm>
+#include <random>
+#include <print>
+#include <string>
+#include <array>
 #include "save.h"
 using namespace std;
 
-// [문제] 파일 "int천만개"에는 int값 천만개가 저장되어 있다.
-// 파일은 binary 모드로 열었고 int 값은 stream의 write 함수를 사용하여 저장하였다.
-// 저장된 int 값을 모두 메모리에 저장하라
-// 저장된 값 중에서 가장 작은 값과 큰 값을 화면에 출력하라
+default_random_engine dre;
+uniform_int_distribution uid{ 0, 9999 };
+uniform_int_distribution uidNameLen{ 10, 30 };
+uniform_int_distribution<int> uidChar{ 'a', 'z' };
 
-array<int, 1000'0000> a;
+class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	}
+
+
+private:
+	string name;  // [10, 30] 사이의 소문자로 구성된 이름
+	size_t id;    // [0, 9999]
+
+	friend ostream& operator <<(ostream& os, const Dog& dog) {
+		print(os, "[{:>4}] - {} ", dog.id, dog.name);
+		return os;
+
+	}
+};
 
 int main()
 {
-	ifstream in{ "int천만개", ios::binary };
-	if (not in) {
-		cout << "파일이 업소용" << endl;
-		return 111;
-	}
+	array<Dog, 1000> dogs;
 
-	in.read( (char*)(& a[0]), a.size() * sizeof(int));
-	auto[Min_num, Max_Num] = minmax_element(a.begin(), a.end());
-	cout << "작은 값 : " << *Min_num << ", 큰 값 : " << *Max_Num << endl;
+	for (Dog dog : dogs) {
+		cout << dog << endl;
+	}
 
 	save("메인.cpp");
 }
