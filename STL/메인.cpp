@@ -12,22 +12,23 @@
 // 많은 수의 자료 다루기 - FILE I/O - binary I/O
 
 #include <iostream>
+#include <random>
 #include <fstream>
-#include <array>
-#include <algorithm>
 #include "save.h"
 using namespace std;
 
+default_random_engine dre;
+uniform_int_distribution uid;
+
 int main()
 {
-	// [문제] int로 표현할 수 있는 값은 -2147483648 ~ 2147483647 까지 이다.
-	// 모든 int 값을 하나도 빼지않고 한 개씩 파일에 txt로 기록하였다.
-	// 값과 값은 빈칸 한 개로 구분하였다.
-	// 이렇게 하면 int를 한 개 기록하는데 평균 몇 바이트가 필요한지 계산하라.
+	// [문제] 랜덤 int값 1000개를 화면에 출력하라
 
-
-
-
+	ofstream out("int천만개");
+	
+	for (int i{}; i < 1000; ++i) {
+		out << uid(dre) << '\n';
+	}
 
 	save("메인.cpp");
 }
