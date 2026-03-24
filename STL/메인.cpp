@@ -12,6 +12,7 @@
 // 동적 메모리 할당(dynamic memory allocation)
 
 #include <iostream>
+#include <numeric>
 #include "save.h"
 using namespace std;
 
@@ -21,13 +22,14 @@ using namespace std;
 
 int main()
 {
+	int* p; // 스택에 생긴 객체
+
 	while(true)
 	{
 		cout << "입력 : ";
 		size_t num;
 		cin >> num;
-
-		int* p; // 스택에 생긴 객체
+		
 		try {
 			p = new int[num]; // 프리스토어에 생긴 객체
 		}
@@ -36,14 +38,23 @@ int main()
 			cout << "메모리 고갈" << e.what() << endl;
 		}
 
+		/*
 		for (int i = 0; i < num; ++i) {
 			p[i] = i + 1;
 		}
-
+		이걸 대체하는 코드 -> 틀릴 곳이 적어짐
+		*/
+		iota(p, p + num, 1);
+		
+		/*
 		long long sum{};
 		for (int i = 0; i < num; ++i) {
 			sum += p[i];
 		}
+		*/
+		// long long sum = accumulate(p, p + num, 0); 근데 accumulate <- 애가 감당을 못함
+		// long long sum = accumulate(p, p + num, static_cast<long long> (0)); <- 이건 너무 긺
+		long long sum = accumulate(p, p + num, 0LL);
 
 		cout << "1부터 " << num << "까지의 합계 : " << sum << endl;
 		delete[] p;
