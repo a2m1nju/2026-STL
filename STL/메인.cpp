@@ -21,32 +21,33 @@ using namespace std;
 
 int main()
 {
-	cout << "입력 : ";
-	size_t num;
-	cin >> num;
+	while(true)
+	{
+		cout << "입력 : ";
+		size_t num;
+		cin >> num;
 
-	int* p = new int[num];
-	
-	/*
-	while(true) {
-		new int[num];
+		int* p; // 스택에 생긴 객체
+		try {
+			p = new int[num]; // 프리스토어에 생긴 객체
+		}
+
+		catch (std::exception& e) {
+			cout << "메모리 고갈" << e.what() << endl;
+		}
+
+		for (int i = 0; i < num; ++i) {
+			p[i] = i + 1;
+		}
+
+		long long sum{};
+		for (int i = 0; i < num; ++i) {
+			sum += p[i];
+		}
+
+		cout << "1부터 " << num << "까지의 합계 : " << sum << endl;
+		delete[] p;
 	}
-	이런건 안됨 -> 
-	*/
-
-	for (int i = 0; i < num; ++i) {
-		p[i] = i + 1;
-	}
-
-	int sum{};
-	for (int i = 0; i < num; ++i) {
-		sum += p[i];
-	}
-
-	cout << "1부터" << num << " 까지의 합계 : " << sum << endl;
-	delete[] p;
-
-
 
 	save("메인.cpp");
 }
