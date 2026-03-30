@@ -13,12 +13,26 @@
 
 #INCLUDE <IOSTREAM>
 #INCLUDE <FSTREAM>
+#INCLUDE <ALGORITHM>
 #INCLUDE "SAVE.H"
 USING NAMESPACE STD;
+
+CHAR 소투대(CHAR C) {
+	RETURN C = TOUPPER(C);
+}
 
 INT MAIN()
 {
 	// [문제] "메인.CPP"의 소문자를 모두 대문자로 바꾼 "메인대문자.CPP"를 만들어라
+	
+	/*
+	TRANSFORM
+	EXCHANGE
+	SWAP
+	*/
+
+
+
 	IFSTREAM IN{ "메인.CPP" };
 	IF (NOT IN) {
 		COUT << "문제잇음" << ENDL;
@@ -26,15 +40,12 @@ INT MAIN()
 	}
 
 	OFSTREAM OUT{ "메인대문자.CPP" };
-	CHAR CH;
-	IN >> NOSKIPWS;
+
+	// TRANSFORM(뭐를, 뭘로, 어떻게);
+	// TRANSFORM(메인시작.메인끝, 메인대문자의시작으로, 함수의시작번지)
+	// TRANSFORM(ISTREAMBUF_ITERATOR<CHAR>{IN}, ISTREAMBUF_ITERATOR<CHAR>{}, )
+	TRANSFORM(ISTREAMBUF_ITERATOR<CHAR>{IN}, {}, OSTREAMBUF_ITERATOR<CHAR>{OUT}, 소투대);
 	
-	WHILE (IN >> CH) {
-		CH = TOUPPER(CH);
-		OUT << CH;
-	}
-
-
 
 	SAVE("메인.CPP");
 

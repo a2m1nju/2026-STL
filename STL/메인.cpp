@@ -13,12 +13,26 @@
 
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 #include "save.h"
 using namespace std;
+
+char 소투대(char c) {
+	return c = toupper(c);
+}
 
 int main()
 {
 	// [문제] "메인.cpp"의 소문자를 모두 대문자로 바꾼 "메인대문자.cpp"를 만들어라
+	
+	/*
+	transform
+	exchange
+	swap
+	*/
+
+
+
 	ifstream in{ "메인.cpp" };
 	if (not in) {
 		cout << "문제잇음" << endl;
@@ -26,18 +40,12 @@ int main()
 	}
 
 	ofstream out{ "메인대문자.cpp" };
-	char ch;
-	in >> noskipws;
+
+	// transform(뭐를, 뭘로, 어떻게);
+	// transform(메인시작.메인끝, 메인대문자의시작으로, 함수의시작번지)
+	// transform(istreambuf_iterator<char>{in}, istreambuf_iterator<char>{}, )
+	transform(istreambuf_iterator<char>{in}, {}, ostreambuf_iterator<char>{out}, 소투대);
 	
-	while (in >> ch) {
-		ch = toupper(ch);
-		out << ch;
-	}
-
-	// 루프를 직접? 만들었기 때문에? 이렇게 코딩하면 안됨?
-	// 
-
-
 
 	save("메인.cpp");
 
