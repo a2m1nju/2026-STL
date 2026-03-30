@@ -35,6 +35,8 @@ int main()
 
 	return 0;
 
+	cout << "이 문장 출력 안됨" << endl;
+
 	// delete p;
 }
 
