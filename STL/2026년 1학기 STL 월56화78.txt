@@ -3459,3 +3459,149 @@ int main()
 
 }
 
+2026-03-30 14:21:49.9900098
+
+
+========================================
+저장한 시간 - 2026-03-30 14:21:49.9900098
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/30 4주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// CALLABLE TYPES 콜러블 타입 -> 실습 -> STL
+
+#include <iostream>
+#include <fstream>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+	// [문제] "메인.cpp"의 소문자를 모두 대문자로 바꾼 "메인대문자.cpp"를 만들어라
+	ifstream in{ "메인.cpp" };
+	if (not in) {
+		cout << "문제잇음" << endl;
+		return 111;
+	}
+
+	ofstream out{ "메인대문자.cpp" };
+	char ch;
+	in >> noskipws;
+	
+	while (in >> ch) {
+		ch = toupper(ch);
+	}
+
+
+
+	save("메인.cpp");
+
+}
+
+2026-03-30 14:22:47.2381962
+
+
+========================================
+저장한 시간 - 2026-03-30 14:22:47.2381962
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/30 4주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// CALLABLE TYPES 콜러블 타입 -> 실습 -> STL
+
+#include <iostream>
+#include <fstream>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+	// [문제] "메인.cpp"의 소문자를 모두 대문자로 바꾼 "메인대문자.cpp"를 만들어라
+	ifstream in{ "메인.cpp" };
+	if (not in) {
+		cout << "문제잇음" << endl;
+		return 111;
+	}
+
+	ofstream out{ "메인대문자.cpp" };
+	char ch;
+	in >> noskipws;
+	
+	while (in >> ch) {
+		ch = toupper(ch);
+		cout << ch;
+	}
+
+
+
+	save("메인.cpp");
+
+}
+
+2026-03-30 14:33:09.3842923
+
+
+========================================
+저장한 시간 - 2026-03-30 14:33:09.3842923
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/30 4주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// CALLABLE TYPES 콜러블 타입 -> 실습 -> STL
+
+#include <iostream>
+#include <fstream>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+	// [문제] "메인.cpp"의 소문자를 모두 대문자로 바꾼 "메인대문자.cpp"를 만들어라
+	ifstream in{ "메인.cpp" };
+	if (not in) {
+		cout << "문제잇음" << endl;
+		return 111;
+	}
+
+	ofstream out{ "메인대문자.cpp" };
+	char ch;
+	in >> noskipws;
+	
+	while (in >> ch) {
+		ch = toupper(ch);
+		out << ch;
+	}
+
+
+
+	save("메인.cpp");
+
+}
+

@@ -9,39 +9,33 @@
 //               - C/C++ 언어 - SDL 검사 - 아니오
 
 // [메모]
-// 스마트 포인터 -> 콜러블 타입 -> 실습 -> STL
-
-// c++언어의 보증사항
-// 프로그램이 정상 종료시 (return문, exit와는 다름) 스택에 생성된 지역객체를
-// 반드시 소멸됨을 보장한다.
-// stack-unwinding
+// CALLABLE TYPES 콜러블 타입 -> 실습 -> STL
 
 #include <iostream>
-#include <memory>
+#include <fstream>
 #include "save.h"
 using namespace std;
 
-class Dog {
-public:
-	Dog() { cout << "생성" << endl; }
-	~Dog() { cout << "소멸" << endl; }
-
-};
-
-class 스마트포인터 {
-public:
-	스마트포인터(Dog* p) : p{p}{}
-	~스마트포인터() {
-		delete p;
-	}
-
-private:
-	Dog* p;
-};
-
 int main()
 {
-	unique_ptr<Dog[]>p{new Dog[10]};
+	// [문제] "메인.cpp"의 소문자를 모두 대문자로 바꾼 "메인대문자.cpp"를 만들어라
+	ifstream in{ "메인.cpp" };
+	if (not in) {
+		cout << "문제잇음" << endl;
+		return 111;
+	}
+
+	ofstream out{ "메인대문자.cpp" };
+	char ch;
+	in >> noskipws;
+	
+	while (in >> ch) {
+		ch = toupper(ch);
+		out << ch;
+	}
+
+	// 루프를 직접? 만들었기 때문에? 이렇게 코딩하면 안됨?
+	// 
 
 
 
