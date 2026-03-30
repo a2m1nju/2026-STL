@@ -18,10 +18,13 @@ using namespace std;
 
 int main()
 {
-	int* p;
-	p = new int{ 20260330 };
+	int* p = new int{ 20260330 };
 
 	cout << *p << endl;
+
+	return 0;
+
+	cout << "이문장은 출력 안됨" << endl;
 
 	save("메인.cpp");
 
