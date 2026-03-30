@@ -40,7 +40,5 @@ int main()
 
 	cout << "최소값" << *min_element(begin(a), end(a)) << endl;;
 
-
-
 	save("메인.cpp");
 }

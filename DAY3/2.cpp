@@ -56,8 +56,6 @@ void change(Dog& p, Dog& q) {
 
 int main()
 {
-
-
 	{
 		Dog a{ 1 }, b{ 2 };
 		change(a, b);

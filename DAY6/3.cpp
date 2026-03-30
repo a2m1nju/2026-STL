@@ -55,7 +55,5 @@ int main()
 	ofstream out{ "dog천마리",ios::binary };
 	out.write((char*)dogs.data(), dogs.size() * sizeof(Dog));
 
-
-
 	save("메인.cpp");
 }

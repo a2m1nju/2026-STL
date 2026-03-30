@@ -29,8 +29,6 @@ public:
 	}
 	*/
 
-
-
 private:
 	int num;
 	friend ostream& operator << (ostream& os, const Dog& dog) {
