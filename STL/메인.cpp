@@ -25,6 +25,7 @@ class Dog {
 public:
 	Dog() { cout << "생성" << endl; }
 	~Dog() { cout << "소멸" << endl; }
+
 };
 
 class 스마트포인터 {
@@ -33,19 +34,18 @@ public:
 	~스마트포인터() {
 		delete p;
 	}
+
+private:
+	Dog* p;
 };
 
 int main()
 {
+	unique_ptr<Dog[]>p{new Dog[10]};
+
+
+
 	save("메인.cpp");
-	
-	// T* 는 raw - pointer이다. 앞으로 쓰지 말자 -> 아무것도 할 수 있는게 없어서?
-	스마트포인터 p{ new Dog };  // RAII
-
-
-	return 0;
-
-	cout << "이 문장 출력 안됨" << endl;
 
 }
 

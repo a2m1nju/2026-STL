@@ -3401,3 +3401,61 @@ int main()
 	// delete p;
 }
 
+2026-03-30 14:13:32.6388294
+
+
+========================================
+저장한 시간 - 2026-03-30 14:13:32.6388294
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/30 4주 2일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 스마트 포인터 -> 콜러블 타입 -> 실습 -> STL
+
+// c++언어의 보증사항
+// 프로그램이 정상 종료시 (return문, exit와는 다름) 스택에 생성된 지역객체를
+// 반드시 소멸됨을 보장한다.
+// stack-unwinding
+
+#include <iostream>
+#include <memory>
+#include "save.h"
+using namespace std;
+
+class Dog {
+public:
+	Dog() { cout << "생성" << endl; }
+	~Dog() { cout << "소멸" << endl; }
+
+};
+
+class 스마트포인터 {
+public:
+	스마트포인터(Dog* p) : p{p}{}
+	~스마트포인터() {
+		delete p;
+	}
+
+private:
+	Dog* p;
+};
+
+int main()
+{
+	unique_ptr<Dog[]>p{new Dog[10]};
+
+
+
+	save("메인.cpp");
+
+}
+
