@@ -43,7 +43,7 @@ int main()
 	// 시간측정끝
 
 	cout << "정렬 후 출력" << endl;
-	for (int num : a | views::reverse| views::take(1000)) {
+	for (int num : a | views::reverse | views::take(1000)) {
 		print("{:8}", num);
 	}
 	cout << endl;
