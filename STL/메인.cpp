@@ -31,6 +31,7 @@ int main()
 	
 	Dog* p = new Dog;
 
+	return 0;
 
 	delete p;
 }
