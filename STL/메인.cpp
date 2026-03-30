@@ -16,6 +16,7 @@
 // 반드시 소멸됨을 보장한다.
 
 #include <iostream>
+#include <memory>
 #include "save.h"
 using namespace std;
 
@@ -29,10 +30,11 @@ int main()
 {
 	save("메인.cpp");
 	
-	Dog* p = new Dog;
+	// T* 는 raw - pointer이다. 앞으로 쓰지 말자 -> 아무것도 할 수 있는게 없어서?
+	unique_ptr<Dog> p{ new Dog };  // RAII
 
 	return 0;
 
-	delete p;
+	// delete p;
 }
 
