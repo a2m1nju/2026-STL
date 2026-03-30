@@ -24,7 +24,7 @@ char 소투대(char c) {
 int main()
 {
 	// [문제] "메인.cpp"의 소문자를 모두 대문자로 바꾼 "메인대문자.cpp"를 만들어라
-	
+
 	/*
 	transform
 	exchange
@@ -48,7 +48,7 @@ int main()
 		[](char c) {
 			return c = toupper(c);
 		});
-	
+
 
 	save("메인.cpp");
 
