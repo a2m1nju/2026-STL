@@ -4063,3 +4063,85 @@ int main()
 
 }
 
+2026-03-31 16:43:56.4388009
+
+
+========================================
+저장한 시간 - 2026-03-31 16:43:56.4388009
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/31 5주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// CALLABLE TYPES 콜러블 타입
+// 1. 함수
+// 2. lambda
+
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+void f() {
+	cout << "호출 가능" << endl;
+}
+
+int main()
+{
+	f();
+	save("메인.cpp");
+	
+}
+
+2026-03-31 16:46:32.5746288
+
+
+========================================
+저장한 시간 - 2026-03-31 16:46:32.5746288
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+3/31 5주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// CALLABLE TYPES 콜러블 타입
+// 1. 함수
+// 2. lambda
+
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+void f() {
+	cout << "호출 가능" << endl;
+}
+
+int main()
+{
+	int n; // addressof, sizeof, typeid
+
+
+	// cout << sizeof( f ) << endl; -> 얘는 안됨
+	cout << addressof(f) << endl;
+	cout << typeid(f).name() << endl;
+
+
+
+	save("메인.cpp");
+	
+}
+

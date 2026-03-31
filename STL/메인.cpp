@@ -9,63 +9,30 @@
 //               - C/C++ 언어 - SDL 검사 - 아니오
 
 // [메모]
-// CALLABLE TYPES 콜러블 타입 -> 실습 -> STL
+// CALLABLE TYPES 콜러블 타입
+// 1. 함수
+// 2. lambda
 
 #include <iostream>
-#include <random>
-#include <array>
-#include <ranges>
-#include <chrono>
-#include <algorithm>
 #include "save.h"
 using namespace std;
-default_random_engine dre;
-uniform_int_distribution uid{ 0, 999'9999 };
 
-array<int, 1000'0000> a;
-
-int 오름차순(const void* a, const void* b) {
-	return *(int*)a - *(int*)b;
-}
-
-bool sort오름차순(int a, int b) {
-	return a < b;
+void f() {
+	cout << "호출 가능" << endl;
 }
 
 int main()
 {
+	int n; // addressof, sizeof, typeid
+
+
+	// cout << sizeof( f ) << endl; -> 얘는 안됨
+	cout << addressof(f) << endl;
+	cout << typeid(f).name() << endl;
+
+
+
 	save("메인.cpp");
-	{
-		for (int& num : a) {
-			num = uid(dre);
-		}
-
-		auto start = chrono::high_resolution_clock::now();
-		qsort(a.data(), a.size(), sizeof(array<int, 1000'0000>::value_type), 오름차순);
-		auto stop = chrono::high_resolution_clock::now();
-
-		auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
-
-		cout << "qsort 걸린 시간 : " << duration << endl;
-	}
-
-	{
-		for (int& num : a) {
-			num = uid(dre);
-		}
-
-		auto start = chrono::high_resolution_clock::now();
-		std::sort(a.begin(), a.end(), [](int a, int b) {
-			return a < b;
-			});
-		auto stop = chrono::high_resolution_clock::now();
-
-		auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
-
-		cout << "sort 시간 : " << duration << endl;
-	}
-
-	cout << endl;
-
+	
 }
 
