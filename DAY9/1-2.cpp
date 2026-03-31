@@ -55,14 +55,12 @@ int main()
 		}
 
 		auto start = chrono::high_resolution_clock::now();
-		std::sort(a.begin(), a.end(), [](int a, int b) {
-			return a < b;
-			});
+		std::sort(a.begin(), a.end(), sort오름차순);
 		auto stop = chrono::high_resolution_clock::now();
 
 		auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
 
-		cout << "sort 시간 : " << duration << endl;
+		cout << "sort 걸린 시간 : " << duration << endl;
 	}
 
 	cout << endl;
