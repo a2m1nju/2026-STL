@@ -127,6 +127,9 @@
   <ItemGroup>
     <ClCompile Include="..\STL\save.cpp" />
     <ClCompile Include="..\STL\메인.cpp" />
+    <ClCompile Include="1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\STL\save.h" />

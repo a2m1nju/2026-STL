@@ -14,17 +14,13 @@
 #include <iostream>
 #include <random>
 #include <array>
-#include <print>
 #include <ranges>
 #include <chrono>
+#include <algorithm>
 #include "save.h"
 using namespace std;
 default_random_engine dre;
 uniform_int_distribution uid{ 0, 999'9999 };
-
-// [문제] 랜덤값을 갖는 int 1000만개를 메모리에 저장하라.
-// qsort를 이용하여 오름차순 정렬하라.
-// 정렬결과를 앞에서부터 1000개만 화면에 출력하라.
 
 array<int, 1000'0000> a;
 
@@ -32,22 +28,42 @@ int 오름차순(const void* a, const void* b) {
 	return *(int*)a - *(int*)b;
 }
 
+bool sort오름차순(int a, int b) {
+	return a < b;
+}
+
 int main()
 {
 	save("메인.cpp");
+	{
+		for (int& num : a) {
+			num = uid(dre);
+		}
 
-	for (int& num : a) {
-		num = uid(dre);
+		auto start = chrono::high_resolution_clock::now();
+		qsort(a.data(), a.size(), sizeof(array<int, 1000'0000>::value_type), 오름차순);
+		auto stop = chrono::high_resolution_clock::now();
+
+		auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
+
+		cout << "qsort 걸린 시간 : " << duration << endl;
 	}
 
-	// 시간측정시작
-	auto start = chrono::high_resolution_clock::now();
-	qsort(a.data(), a.size(), sizeof(array<int, 1000'0000>::value_type), 오름차순);
-	auto stop = chrono::high_resolution_clock::now();
+	{
+		for (int& num : a) {
+			num = uid(dre);
+		}
 
-	auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
+		auto start = chrono::high_resolution_clock::now();
+		std::sort(a.begin(), a.end(), sort오름차순);
+		auto stop = chrono::high_resolution_clock::now();
 
-	cout << "걸린 시간 : " << duration << endl;
+		auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
+
+		cout << "sort 걸린 시간 : " << duration << endl;
+	}
+
+	cout << endl;
 
 }
 
