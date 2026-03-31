@@ -18,14 +18,16 @@
 #include "save.h"
 using namespace std;
 
+class Sakura {
+public:
+	void operator()() {
+		cout << "안냥" << endl;
+	};
+};
+
 int main()
 {
-	class Sakura {
-	public:
-		void operator()() {
-			cout << "안냥" << endl;
-			};
-	};
+	
 
 	Sakura a;
 	a();
@@ -41,4 +43,7 @@ int main()
 
 // class `int __cdecl main(void)'::`2'::<lambda_1>
 // class `int __cdecl main(void)'::`2'::Sakura
+// 어디에서 만들어진 클래스인지 확인하려고 이렇게?
+
+// class Sakura
 
