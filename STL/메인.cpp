@@ -20,13 +20,25 @@ using namespace std;
 
 int main()
 {
-	cout << typeid([]() {
-		cout << "안냥" << endl;
-		}).name() << endl;
+	class Sakura {
+	public:
+		void operator()() {
+			cout << "안냥" << endl;
+			};
+	};
+
+	Sakura a;
+	a();
+
+	cout << typeid(a).name() << endl;
+	
 
 
 
 	save("메인.cpp");
 	
 }
+
+// class `int __cdecl main(void)'::`2'::<lambda_1>
+// class `int __cdecl main(void)'::`2'::Sakura
 
