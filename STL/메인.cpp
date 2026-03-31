@@ -1,6 +1,6 @@
 /*
 2026년 1학기 STL 월56 화78
-3/30 4주 2일
+3/31 5주 1일
 */
 
 // 컴파일 환경 - Release / x64
@@ -16,6 +16,7 @@
 #include <array>
 #include <print>
 #include <ranges>
+#include <chrono>
 #include "save.h"
 using namespace std;
 default_random_engine dre;
@@ -33,23 +34,20 @@ int 오름차순(const void* a, const void* b) {
 
 int main()
 {
+	save("메인.cpp");
 
 	for (int& num : a) {
 		num = uid(dre);
 	}
 
 	// 시간측정시작
+	auto start = chrono::high_resolution_clock::now();
 	qsort(a.data(), a.size(), sizeof(array<int, 1000'0000>::value_type), 오름차순);
-	// 시간측정끝
+	auto stop = chrono::high_resolution_clock::now();
 
-	cout << "정렬 후 출력" << endl;
-	for (int num : a | views::reverse| views::take(1000)) {
-		print("{:8}", num);
-	}
-	cout << endl;
+	auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
 
-
-	save("메인.cpp");
+	cout << "걸린 시간 : " << duration << endl;
 
 }
 
