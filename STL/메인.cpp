@@ -20,9 +20,9 @@ using namespace std;
 
 int main()
 {
-	[]() {
+	cout << typeid([]() {
 		cout << "¾È³É" << endl;
-		}();
+		}).name() << endl;
 
 
 
