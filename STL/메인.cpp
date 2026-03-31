@@ -18,24 +18,13 @@
 #include "save.h"
 using namespace std;
 
-void 점프() {
-	cout << "점프" << endl;
-}
-
-void 슬라이드() {
-	cout << "슬라이드" << endl;
-}
-
 int main()
 {
+	[]() {
+		cout << "안냥" << endl;
+		}();
 
-	void(*왼쪽키)() = 점프;
-	왼쪽키();
-	왼쪽키();
-	// 설정에서 키 기능 변경
-	왼쪽키 = 슬라이드;
 
-	왼쪽키();
 
 	save("메인.cpp");
 	
