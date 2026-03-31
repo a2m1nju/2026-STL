@@ -23,12 +23,9 @@ void f() {
 
 int main()
 {
-	int n; // addressof, sizeof, typeid
+	void (*a)() = f; //  a는 함수 f를 가리키는 포인터
 
-
-	// cout << sizeof( f ) << endl; -> 얘는 안됨
-	cout << addressof(f) << endl;
-	cout << typeid(f).name() << endl;
+	a();
 
 
 
