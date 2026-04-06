@@ -58,16 +58,12 @@ private:
 
 array<Dog, 10'0000> dogs;
 
-int main() 
+int main()
 {
-	/*
+
 	sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
 		return a.getid() < b.getid();
 		});
-	*/
-	
-	// c++20ÀÇ sort
-	ranges::sort(dogs, {}, &Dog::getid);
 
 	for (const Dog& dog : dogs | views::take(1000)) {
 		cout << dog << endl;
@@ -75,6 +71,6 @@ int main()
 
 
 	save("¸ÞÀÎ.cpp");
-	
+
 }
 
