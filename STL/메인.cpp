@@ -14,6 +14,7 @@
 #include <iostream>
 #include <array>
 #include <algorithm>
+#include <functional>
 #include "save.h"
 using namespace std;
 
@@ -34,17 +35,28 @@ int main()
 {
 	array<int, 10> a{ 8, 4, 2, 0, 1, 9, 7, 5, 6, 3 };
 
-	// sort(a.begin(), a.end(), 정렬기준);
+	function <bool(int, int)> f;
 
+	f = 정렬기준;
+	f = [](int a, int b) -> bool {
+		cout << "람다" << ' ';
+		return a < b;
+		};
+	f = Dog{};
+
+	// sort(a.begin(), a.end(), 정렬기준);
 	
+	/*
 	sort(a.begin(), a.end(), [](int a, int b) -> bool { 
 		// bool [](int a, int b) 이렇게 쓰면 안됨 
 		cout << "람다" << ' ';
 		return a < b;
 		});
+	*/
 	
-
 	// sort(a.begin(), a.end(), Dog{});
+
+	sort(a.begin(), a.end(), f);
 
 
 	for (int num : a) {
