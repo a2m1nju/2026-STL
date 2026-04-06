@@ -24,27 +24,26 @@ bool 정렬기준(int a, int b) {
 
 class Dog {
 public:
-	bool operator()(int a, int b){
+	bool operator()(int a, int b) {
 		cout << "Dog" << ' ';
 		return a < b;
 	}
 };
 
-int main() 
+int main()
 {
 	array<int, 10> a{ 8, 4, 2, 0, 1, 9, 7, 5, 6, 3 };
 
 	// sort(a.begin(), a.end(), 정렬기준);
 
-	
-	sort(a.begin(), a.end(), [](int a, int b) -> bool { 
-		// bool [](int a, int b) 이렇게 쓰면 안됨 
+	/*
+	sort(a.begin(), a.end(), [](int a, int b) {
 		cout << "람다" << ' ';
 		return a < b;
 		});
-	
+	*/
 
-	// sort(a.begin(), a.end(), Dog{});
+	sort(a.begin(), a.end(), Dog{});
 
 
 	for (int num : a) {
@@ -56,6 +55,6 @@ int main()
 
 
 	save("메인.cpp");
-	
+
 }
 
