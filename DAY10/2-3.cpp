@@ -64,7 +64,7 @@ private:
 
 array<Dog, 10'0000> dogs;
 
-int main() 
+int main()
 {
 	for (Dog& dog : dogs) {
 		string& name = dog.getname();
@@ -77,6 +77,6 @@ int main()
 
 
 	save("∏ﬁ¿Œ.cpp");
-	
+
 }
 

@@ -44,10 +44,6 @@ public:
 		return name;
 	}
 
-	string& getname() {
-		return name;
-	}
-
 private:
 	string name;    // [1, 150]
 	int id;         // [0, 999'9999]
@@ -60,23 +56,27 @@ private:
 };
 
 // [문제] Dog 객체 10만개를 메모리에 저장하라
-// 각 Dog 객체 10만개를 메모리(std::array)에 저장하라
+// std::sort를 사용하여 name의 길이기준 오름차순으로 정렬하라
+// 필요하다면 Dog에 interface 멤버를 추가하라.
+// 앞에서 1000개의 내용을 cout으로 출력하라
 
 array<Dog, 10'0000> dogs;
 
-int main() 
+int main()
 {
-	for (Dog& dog : dogs) {
-		string& name = dog.getname();
-		sort(name.begin(), name.end());
-	}
+	// c++20의 sort
+	// ranges::sort(dogs, {}, &Dog::getid);
 
-	for (const Dog& dog : dogs | views::take(100)) {
+	sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getname().size() < b.getname().size();
+		});
+
+
+	for (const Dog& dog : dogs | views::take(1000)) {
 		cout << dog << endl;
 	}
 
 
 	save("메인.cpp");
-	
-}
 
+}
