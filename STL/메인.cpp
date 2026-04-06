@@ -14,6 +14,7 @@
 #include <random>
 #include <string>
 #include <print>
+#include <array>
 #include "save.h"
 using namespace std;
 
@@ -22,7 +23,6 @@ uniform_int_distribution uid{ 0, 999'9999 };
 uniform_int_distribution uidName{ 1, 150 };
 uniform_int_distribution<> uidChar{ '!', '~' };
 
-// 예제1
 
 class Dog {
 public:
@@ -43,11 +43,20 @@ private:
 	}
 };
 
+// [문제] Dog 객체 10만개를 메모리에 저장하라
+// std::sort를 사용하여 id 기준 오름차순으로 정렬하라
+// 필요하다면 Dog에 interface 멤버를 추가하라.
+// 앞에서 1000개의 내용을 cout으로 출력하라
+
+array<Dog, 10'0000> dogs;
+
+// array<int, 10> a; -> 0으로 나옴
 
 int main() 
 {
-	for (int i = 0; i < 10; ++i) {
-		cout << Dog{} << endl;
+	array<int, 10> a;
+	for (int num : a) {
+		cout << num << endl;
 	}
 
 	save("메인.cpp");
