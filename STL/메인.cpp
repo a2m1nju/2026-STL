@@ -44,7 +44,8 @@ private:
 	int id;         // [0, 999'9999]
 
 	friend ostream& operator<<(ostream& os, const Dog& dog) {
-		print(os, "[{:7}] - {}", dog.id, dog.name);
+		//print(os, "[{:7}] - {}", dog.id, dog.name);
+		print(os, "[{:7}]", dog.id);
 		return os;
 	}
 };
@@ -60,11 +61,13 @@ int main()
 {
 	cout << "정렬 시작" << endl;
 
-	sort(dogs.begin(), dogs.end(), [](Dog a, Dog b) {
+	sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
 		return a.getid() < b.getid();
 		});
 
-	// 이렇게 하면 쓸때없는 복사생성자가 사용되서 0점임
+	for (const Dog& dog : dogs) {
+		cout << dog << endl;
+	}
 
 	cout << "정렬 끝" << endl;
 
