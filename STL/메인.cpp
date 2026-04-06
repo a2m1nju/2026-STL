@@ -1,6 +1,6 @@
 /*
 2026년 1학기 STL 월56 화78
-3/31 5주 1일
+4/6 5주 2일
 */
 
 // 컴파일 환경 - Release / x64
@@ -9,40 +9,34 @@
 //               - C/C++ 언어 - SDL 검사 - 아니오
 
 // [메모]
-// CALLABLE TYPES 콜러블 타입
-// 1. 함수 -> 함수 포인터도 호출가능하다
-// 2. lambda
-// 3. () 연산자를 구현한 클래스 - 객체를 functor(함수객체)라 함
-// 4. 멤버함수와 멤버함수 포인터
-
-// function 클래스로 일관된 사용가능
+// function을 사용하여 모든 호출가능 타입을 표현할 수 있다
 
 #include <iostream>
+#include <array>
+#include <algorithm>
 #include "save.h"
 using namespace std;
 
-class Sakura {
-public:
-	void operator()() {
-		cout << "안냥" << endl;
-	};
-};
+bool 정렬기준(int a, int b) {
+	cout << "함수" << ' ';  // 10 * log 10
+	return a < b;
+}
 
 int main()
 {
-	Sakura a;
-	a();
+	array<int, 10> a{ 8, 4, 2, 0, 1, 9, 7, 5, 6, 3 };
 
-	cout << typeid(a).name() << endl;
-	
+	sort(a.begin(), a.end(), 정렬기준);
+
+	for (int num : a) {
+		cout << num << ' ';
+	}
+	cout << endl;
+
+
+
 
 	save("메인.cpp");
 	
 }
-
-// class `int __cdecl main(void)'::`2'::<lambda_1>
-// class `int __cdecl main(void)'::`2'::Sakura
-// 어디에서 만들어진 클래스인지 확인하려고 이렇게?
-
-// class Sakura -> 전역
 
