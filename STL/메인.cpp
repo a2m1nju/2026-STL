@@ -9,63 +9,46 @@
 //               - C/C++ 언어 - SDL 검사 - 아니오
 
 // [메모]
-// function을 사용하여 모든 호출가능 타입을 표현할 수 있다
 
 #include <iostream>
-#include <array>
-#include <algorithm>
-#include <functional>
+#include <random>
+#include <string>
+#include <print>
 #include "save.h"
 using namespace std;
 
-bool 정렬기준(int a, int b) {
-	cout << "함수" << ' ';  // 10 * log 10
-	return a < b;
-}
+default_random_engine dre;
+uniform_int_distribution uid{ 0, 999'9999 };
+uniform_int_distribution uidName{ 1, 150 };
+uniform_int_distribution<> uidChar{ '!', '~' };
+
+// 예제1
 
 class Dog {
 public:
-	bool operator()(int a, int b){
-		cout << "Dog" << ' ';
-		return a < b;
+	Dog() {
+		id = uid(dre);
+		int len = uidName(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	}
+private:
+	string name;    // [1, 150]
+	int id;         // [0, 999'9999]
+
+	friend ostream& operator<<(ostream& os, const Dog& dog) {
+		print(os, "[{:7}] - {}", dog.id, dog.name);
+		return os;
 	}
 };
 
+
 int main() 
 {
-	array<int, 10> a{ 8, 4, 2, 0, 1, 9, 7, 5, 6, 3 };
-
-	function <bool(int, int)> f;
-
-	f = 정렬기준;
-	f = [](int a, int b) -> bool {
-		cout << "람다" << ' ';
-		return a < b;
-		};
-	f = Dog{};
-
-	// sort(a.begin(), a.end(), 정렬기준);
-	
-	/*
-	sort(a.begin(), a.end(), [](int a, int b) -> bool { 
-		// bool [](int a, int b) 이렇게 쓰면 안됨 
-		cout << "람다" << ' ';
-		return a < b;
-		});
-	*/
-	
-	// sort(a.begin(), a.end(), Dog{});
-
-	sort(a.begin(), a.end(), f);
-
-
-	for (int num : a) {
-		cout << num << ' ';
+	for (int i = 0; i < 10; ++i) {
+		cout << Dog{} << endl;
 	}
-	cout << endl;
-
-
-
 
 	save("메인.cpp");
 	
