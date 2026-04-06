@@ -15,6 +15,7 @@
 #include <string>
 #include <print>
 #include <array>
+#include <algorithm>
 #include "save.h"
 using namespace std;
 
@@ -33,6 +34,11 @@ public:
 			name += uidChar(dre);
 		}
 	}
+
+	int getid() const {
+		return id;
+	}
+
 private:
 	string name;    // [1, 150]
 	int id;         // [0, 999'9999]
@@ -50,14 +56,15 @@ private:
 
 array<Dog, 10'0000> dogs;
 
-// array<int, 10> a; -> 0으로 나옴
-
 int main() 
 {
-	array<int, 10> a;
-	for (int num : a) {
-		cout << num << endl;
-	}
+	cout << "정렬 시작" << endl;
+
+	sort(dogs.begin(), dogs.end(), [](Dog a, Dog b) {
+		return a.getid() < b.getid();
+		});
+
+	cout << "정렬 끝" << endl;
 
 	save("메인.cpp");
 	
