@@ -64,6 +64,8 @@ int main()
 		return a.getid() < b.getid();
 		});
 
+	// 이렇게 하면 쓸때없는 복사생성자가 사용되서 0점임
+
 	cout << "정렬 끝" << endl;
 
 	save("메인.cpp");
