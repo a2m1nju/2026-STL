@@ -9,7 +9,6 @@
 //               - C/C++ 언어 - SDL 검사 - 아니오
 
 // [메모]
-// 중간고사 4월 21일
 
 #include <iostream>
 #include <random>
@@ -20,6 +19,7 @@
 #include <fstream>
 #include <ranges>
 #include "save.h"
+
 using namespace std;
 
 default_random_engine dre;
@@ -29,6 +29,27 @@ uniform_int_distribution<> uidChar{ '!', '~' };
 
 
 class Dog {
+public:
+	Dog() {
+		id = uid(dre);
+		int len = uidName(dre);
+		for (int i = 0; i < len; ++i) {
+			name += uidChar(dre);
+		}
+	}
+
+	int getid() const {
+		return id;
+	}
+
+	string getname() const {
+		return name;
+	}
+
+	string& getname() {
+		return name;
+	}
+
 private:
 	string name;    // [1, 16]
 	int id;         // [0, 999'9999]
@@ -40,15 +61,16 @@ private:
 	}
 };
 
-// [문제] 다운받은 "Dog10만마리"에는 class Dog객체 10만개가 저장되어 있다.
-// 바이너리 모드로 저장하여 정확하게 4MB이다.
-// 메모리로 모두 읽어와라.
-// 앞에서 100개 출력하여 확인하라.
 
-int main() 
+array<Dog, 10'0000> dogs;
+
+int main()
 {
+	ofstream out{ "Dog10만마리", ios::binary };
+	out.write((char*)dogs.data(), dogs.size() * sizeof(Dog));
+
 
 	save("메인.cpp");
-	
+
 }
 

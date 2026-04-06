@@ -9,7 +9,6 @@
 //               - C/C++ 언어 - SDL 검사 - 아니오
 
 // [메모]
-// 중간고사 4월 21일
 
 #include <iostream>
 #include <random>
@@ -45,10 +44,10 @@ private:
 // 메모리로 모두 읽어와라.
 // 앞에서 100개 출력하여 확인하라.
 
-int main() 
+int main()
 {
 
 	save("메인.cpp");
-	
+
 }
 
