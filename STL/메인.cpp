@@ -26,7 +26,11 @@ int main()
 {
 	array<int, 10> a{ 8, 4, 2, 0, 1, 9, 7, 5, 6, 3 };
 
-	sort(a.begin(), a.end(), 정렬기준);
+	// sort(a.begin(), a.end(), 정렬기준);
+	sort(a.begin(), a.end(), [](int a, int b) {
+		cout << "람다" << ' ';
+		return a < b;
+		});
 
 	for (int num : a) {
 		cout << num << ' ';
