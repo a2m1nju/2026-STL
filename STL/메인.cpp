@@ -46,9 +46,11 @@ private:
 
 int main() 
 {
-	ZString();
-	ZString s{ "2026." };
-	cout << s << endl;
+	string s{ "2026." };
+	string t{ "04.07" };
+	string u = s + t;     // concatenation
+
+	cout << u << endl;
 
 	save("¸ÞÀÎ.cpp");
 }
