@@ -22,7 +22,7 @@ int main()
 	s += "04.07";
 	cout << s << endl;
 
-	for (auto i{ s.begin() }; i < s.end(); ++i) {
+	for (auto i{ s.rbegin() }; i < s.rend(); ++i) {
 		cout << *i << endl;
 	}
 
