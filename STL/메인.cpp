@@ -47,10 +47,11 @@ private:
 int main() 
 {
 	string s{ "2026." };
-	string t{ "04.07" };
-	string u = s + t;     // concatenation
+	string t = move(s);
 
-	cout << u << endl;
+	cout << "s :" << s << endl;
+	cout << "t : " << t << endl;
+
 
 	save("¸ÞÀÎ.cpp");
 }
