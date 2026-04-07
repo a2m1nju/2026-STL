@@ -19,11 +19,16 @@ using namespace std;
 
 class ZString {
 public:
-	ZString() = default;
+	ZString() {
+		cout << "생성() 글자수 : " << len << " 객체 : " << this << " 글자주소 : " << (void*)p.get() << endl;
+	}
+
 	ZString(const char* s) {
 		len = strlen(s);
 		p = make_unique<char[]>(len);
 		memcpy(p.get(), s, len);
+
+		cout << "생성(char*) 글자수 : " << len << " 객체 : " << this << " 글자주소 : " << (void*)p.get() << endl;
 	}
 
 	friend ostream& operator<<( ostream& os, const ZString& zs) {
@@ -41,6 +46,7 @@ private:
 
 int main() 
 {
+	ZString();
 	ZString s{ "2026." };
 	cout << s << endl;
 
