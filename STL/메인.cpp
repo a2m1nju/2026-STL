@@ -13,19 +13,36 @@
 
 #include <iostream>
 #include <string>
+#include <memory>
 #include "save.h"
 using namespace std;
 
-int main() 
-{
-	string s{ "2026." };
-	s += "04.07";
-	cout << s << endl;
-
-	for (auto i{ s.rbegin() }; i < s.rend(); ++i) {
-		cout << *i << endl;
+class ZString {
+public:
+	ZString() = default;
+	ZString(const char* s) {
+		len = strlen(s);
+		p = make_unique<char[]>(len);
+		memcpy(p.get(), s, len);
 	}
 
+	friend ostream& operator<<( ostream& os, const ZString& zs) {
+		for (int i = 0; i < zs.len; ++i) {
+			os << *(zs.p.get()+i);
+		}
+		return os;
+	}
+
+private:
+	size_t len{};
+	unique_ptr<char[]>  p{};
+
+};
+
+int main() 
+{
+	ZString s{ "2026." };
+	cout << s << endl;
 
 	save("¸ÞÀÎ.cpp");
 }
