@@ -14,25 +14,28 @@
 #include <iostream>
 #include <array>
 #include <algorithm>
+#include <string>
 #include "save.h"
 #include "ZString.h"
 using namespace std;
+extern bool 관찰;
 
 int main() 
 {
-	array<ZString, 5> zs{ "333", "1", "55555", "4444", "22" };
-	// [문제] zs를 길이 오름차순으로 정렬하라 - c++11 이전 code
+	// [문제] "메인.cpp"에 있는 모든 단어를 ZString 객체로 읽어와라.
+	// 단어란 공백으로 분리된 문자집합을 말한다.
+	// 다음 문장이 문제없이 실행되도록 하자.
 
-	관찰 = true;
-	std::sort(zs.begin(), zs.end(), [](const ZString& a, const ZString& b) {
-		return a.getlen() < b.getlen();
-		});
+	ifstream in{ "메인.cpp" };
+	if (not in) {
+		cout << "문제잇음" << endl;
+		return 123;
+	}
 
-	for (const ZString& s : zs)
+	ZString s;
+	while (in >> s) {
 		cout << s << endl;
-
-	관찰 = false;
-
+	}
 
 	save("메인.cpp");
 }
