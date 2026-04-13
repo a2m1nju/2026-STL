@@ -18,7 +18,7 @@
 #include "ZString.h"
 using namespace std;
 
-int main() 
+int main()
 {
 	array<ZString, 5> zs{ "333", "1", "55555", "4444", "22" };
 	// [문제] zs를 길이 오름차순으로 정렬하라 - c++11 이전 code

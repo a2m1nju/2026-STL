@@ -18,6 +18,13 @@ public:
 
 	// 이동
 
+	// 연산자 오버로딩
+	
+	// 인터페이스
+	size_t getlen() const;
+
+
+
 	void special(std::string) const;
 
 	friend std::ostream& operator<<(std::ostream& os, const ZString& zs);

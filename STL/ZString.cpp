@@ -32,6 +32,12 @@ ZString::ZString(const char* s) {
 
 }
 
+size_t ZString::getlen() const 
+{
+	return len;
+}
+
+
 void ZString::special(std::string µø¿€) const
 {
 	int num = 10;
