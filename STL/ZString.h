@@ -2,7 +2,6 @@
 // 26.04.13
 #pragma once
 #include <iostream>
-extern bool °üÂû;
 
 class ZString {
 public:

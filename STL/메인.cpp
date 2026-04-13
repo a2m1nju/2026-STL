@@ -15,6 +15,7 @@
 #include <array>
 #include <algorithm>
 #include <string>
+#include<fstream>
 #include "save.h"
 #include "ZString.h"
 using namespace std;
