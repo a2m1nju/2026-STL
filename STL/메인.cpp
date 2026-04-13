@@ -1,6 +1,6 @@
 /*
 2026년 1학기 STL 월56 화78
-4/7 6주 1일
+4/13 6주 2일
 */
 
 // 컴파일 환경 - Release / x64
@@ -12,45 +12,26 @@
 // STL 컨테이너 - std::string과 유자한 ZString을 만들어서 컨테이너 본질에 접근
 
 #include <iostream>
-#include <string>
-#include <memory>
+#include <array>
 #include "save.h"
+#include "ZString.h"
 using namespace std;
-
-class ZString {
-public:
-	ZString() {
-		cout << "생성() 글자수 : " << len << " 객체 : " << this << " 글자주소 : " << (void*)p.get() << endl;
-	}
-
-	ZString(const char* s) {
-		len = strlen(s);
-		p = make_unique<char[]>(len);
-		memcpy(p.get(), s, len);
-
-		cout << "생성(char*) 글자수 : " << len << " 객체 : " << this << " 글자주소 : " << (void*)p.get() << endl;
-	}
-
-	friend ostream& operator<<( ostream& os, const ZString& zs) {
-		for (int i = 0; i < zs.len; ++i) {
-			os << *(zs.p.get()+i);
-		}
-		return os;
-	}
-
-private:
-	size_t len{};
-	unique_ptr<char[]>  p{};
-
-};
 
 int main() 
 {
-	string s{ "2026." };
-	string t = move(s);
+	//관찰 = true;
 
-	cout << "s :" << s << endl;
-	cout << "t : " << t << endl;
+	array<ZString, 5> zs{ "333", "1", "55555", "4444", "22" };
+
+	관찰 = true;
+	for (ZString& a : zs)
+		cout << a << endl;
+	//ZString a{ "2026년 4월 13일" };
+	//ZString b = a; // 복사생성
+	관찰 = false;
+
+
+
 
 
 	save("메인.cpp");
