@@ -76,10 +76,37 @@ ZString& ZString::operator=(const ZString& other)
 	if (관찰)
 		special("복사할당");
 	return *this;
+}
 
+ZString::ZString(ZString&& other)
+	:id{++gid}
+{
+	len = other.len;
+	p.reset(other.p.release());
+
+	other.len = 0;
+	// 자기 자원이 이동된 other는 xvalue가 되고 이것을 사용하면 undifined behavior
+
+	if (관찰)
+		special("이동생성");
 
 }
 
+ZString& ZString::operator=(ZString&& other) 
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	// 메모리 반환 잘 됏는지?
+	p.reset(other.p.release());
+	other.len = 0;
+
+	if (관찰)
+		special("이동할당");
+	return *this;
+
+}
 
 std::ostream& operator<<(std::ostream& os, const ZString& zs) {
 	for (int i = 0; i < zs.len; ++i) {

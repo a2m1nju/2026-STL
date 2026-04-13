@@ -16,7 +16,10 @@ public:
 	ZString& operator=(const ZString&);
 
 
-	// 이동
+	// 이동 - c++11 부터 지원되는  move semantics
+	ZString(ZString&&);
+	ZString& operator=(ZString&&);
+
 
 	// 연산자 오버로딩
 	
