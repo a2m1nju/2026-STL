@@ -18,13 +18,10 @@
     <ClCompile Include="..\STL\save.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\STL\메인.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="..\STL\ZString.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="1.cpp">
+    <ClCompile Include="..\STL\메인.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

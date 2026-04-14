@@ -60,6 +60,9 @@ ZString::ZString(const ZString& other)
 	len = other.len;
 	p = std::make_unique<char[]>(len);
 	memcpy(p.get(), other.p.get(), len);
+
+	if (관찰)
+		special("복사생성");
 		
 }
 

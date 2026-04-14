@@ -6581,3 +6581,94 @@ int main()
 	save("메인.cpp");
 }
 
+2026-04-14 16:46:33.4144617
+
+
+========================================
+저장한 시간 - 2026-04-14 16:46:33.4144617
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+4/14 7주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// STL 컨테이너 - containers are objects that store other objects
+
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+int main() 
+{
+	array<ZString, 2> a{ "1", "333" }; // a -> container
+	
+	//array<array<ZString, 2>, 10> b;
+	//vector<array<ZString, 2>> v;  -> 보통은 이렇게 씀
+
+	관찰 = true;
+	a[0] = "123123123123";
+	cout << a[0] << endl;
+	관찰 = false;
+
+
+
+
+	save("메인.cpp");
+}
+
+2026-04-14 17:13:32.1025756
+
+
+========================================
+저장한 시간 - 2026-04-14 17:13:32.1025756
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+4/14 7주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// STL 컨테이너 - containers are objects that store other objects
+
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+int main() 
+{
+	array<ZString, 2> a{ "1", "333" }; // a -> container
+	
+	//array<array<ZString, 2>, 10> b;
+	//vector<array<ZString, 2>> v;  -> 보통은 이렇게 씀
+
+	cout << "원소 수 : " << a.size() << endl;
+	cout << "비었니? : " << boolalpha << a.empty() << endl;
+	cout << "최대 수 : " << a.max_size() << endl;
+
+
+
+
+
+
+	save("메인.cpp");
+}
+
