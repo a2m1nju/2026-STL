@@ -25,9 +25,11 @@ int main()
 	//array<array<ZString, 2>, 10> b;
 	//vector<array<ZString, 2>> v;  -> 보통은 이렇게 씀
 
-	cout << "원소 수 : " << a.size() << endl;
-	cout << "비었니? : " << boolalpha << a.empty() << endl;
-	cout << "최대 수 : " << a.max_size() << endl;
+	a.fill("2026.04.14");
+
+	for (const ZString& zs : a) {
+		cout << zs << endl;
+	}
 
 	save("메인.cpp");
 }
