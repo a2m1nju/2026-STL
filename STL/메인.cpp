@@ -11,6 +11,7 @@
 // [메모]
 // STL 컨테이너 - containers are objects that store other objects
 
+
 #include <iostream>
 #include <array>
 #include "save.h"
@@ -18,6 +19,8 @@
 using namespace std;
 extern bool 관찰;
 
+// ilerator로 a를 순회
+// element access - at, opertator[], front, back, data
 int main() 
 {
 	array<ZString, 2> a{ "1", "333" }; // a -> container
