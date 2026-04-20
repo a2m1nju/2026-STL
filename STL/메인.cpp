@@ -29,8 +29,10 @@ int main()
 	save("메인.cpp");
 
 	vector<int> v{ 1,2,3,4,5 };
-	cout << sizeof v << endl;
-	cout << addressof(v) << endl;
-	cout << typeid(v) << endl;
+	
+	// x86 - 12
+	// x64 - 24
+	// x64 - Debug 32
+	cout << "v가 차지란 메모리 :  " << sizeof(v) << endl;
 }
 
