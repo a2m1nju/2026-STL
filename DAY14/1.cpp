@@ -21,10 +21,10 @@ extern bool °üÂû;
 
 // ilerator·Î a¸¦ ¼øÈ¸
 // element access - at, opertator[], front, back, data
-int main() 
+int main()
 {
-	array<ZString, 5> a{ "1", "22", "333", "4444", "55555"};
-	
+	array<ZString, 5> a{ "1", "22", "333", "4444", "55555" };
+
 	//array<ZString,5>::iterator i = a.begin(); -> ÀÌ°É ¹Ø¿¡Ã³·³ ¾¸
 	auto i = a.begin();
 
