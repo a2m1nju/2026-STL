@@ -24,12 +24,28 @@
 using namespace std;
 extern bool 관찰;
 
-int main() 
+int main()
 {
 	save("메인.cpp");
 
-	vector<int> v{ 1,2,3,4,5 };
-	
-	cout << "v가 저장할 수 있는 최대 int 개수 : " << v.max_size() << endl;
+	vector<ZString> v;
+	// [문제] "메인.cpp"에 있는 모든 단어를 v에 저장하라
+	ifstream in{ "메인.cpp" };
+	if (not in) {
+		return 0;
+	}
+
+	ZString zs;
+	while (in >> zs) {
+		v.push_back(zs);
+	}
+
+	sort(v.begin(), v.end(), [](const ZString& a, const ZString& b) {
+		return a.size() < b.size();
+		});
+
+	for (const ZString& zs : v) {
+		cout << zs << endl;
+	}
 }
 
