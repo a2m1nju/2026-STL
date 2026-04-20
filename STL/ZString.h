@@ -28,7 +28,7 @@ public:
 	// STL 컨테이너가 되려면 다음 함수정도는 제공해야
 	size_t size() const;
 
-	//void show() const;
+	void show() const;
 
 
 	void special(std::string) const;

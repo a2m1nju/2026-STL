@@ -21,9 +21,9 @@ extern bool 관찰;
 
 // ilerator로 a를 순회
 // element access - at, opertator[], front, back, data
-int main() 
+int main()
 {
-	array<ZString, 5> a{ "1", "22", "333", "4444", "55555"};
+	array<ZString, 5> a{ "1", "22", "333", "4444", "55555" };
 	a.begin()->show();
 	a[0].show();
 	a.front().show();

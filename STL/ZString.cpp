@@ -58,12 +58,12 @@ void ZString::special(std::string 동작) const
 		id, 동작, (long long)this, (long long)p.get(), len, 글자); 
 }
 
-/*
+
 void ZString::show() const
 {
 
 }
-*/
+
 
 
 
