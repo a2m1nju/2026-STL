@@ -29,16 +29,11 @@ int main()
 	auto i = a.begin();
 
 	// i < a.end -> 이렇게 쓸 순 있지만 컨티구어스 상황일때만 가능한?
-	for (auto i = a.begin(); i != a.end(); ++i) { // 꼭 ++i로 써야함
-		cout << (*i).size() << endl;
+	for (auto i = a.rbegin(); i != a.rend(); ++i) { // 꼭 ++i로 써야함
+		//cout << (*i).size() << endl;
 		cout << (*i) << endl;
 
 	}
-	//array<array<ZString, 2>, 10> b;
-	//vector<array<ZString, 2>> v;  -> 보통은 이렇게 씀
-
-	a.fill("2026.04.14");
-
 
 	save("메인.cpp");
 }
