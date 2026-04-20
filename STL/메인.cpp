@@ -19,6 +19,7 @@
 #include <vector>
 #include <fstream>
 #include <algorithm>
+#include <string>
 #include "save.h"
 #include "ZString.h"
 using namespace std;
@@ -28,11 +29,33 @@ int main()
 {
 	save("메인.cpp");
 
-	vector<int> v{ 1,2,3,4,5 };
+	// [문제] 키보드에서 입력한 모든 단어를 저장하라
+	// 입력의 끝은 OS마다 지정되어 있다 (컨트롤 + Z)
+	// 오름차순 정렬하고 출력하라
+
+	//vector<std::string> v;
+	//vector<std::string> v{ 키보드시작,끝 };
+	vector<std::string> v{ istream_iterator<string>{cin}, {} };
+
+	/*
+	string s;
+	while (cin >> s) {
+		v.push_back(s);
+	}
+	*/
+
+	// 오름차순 정렬
+	sort(v.begin(), v.end());
+
+	for (auto i = v.rbegin(); i != v.rend(); ++i) {
+		cout << *i << endl;
+	}
+	/*
+	for (const string& s : v) {
+		cout << s << endl;
+	}
+	*/
 	
-	// x86 - 12
-	// x64 - 24
-	// x64 - Debug 32
-	cout << "v가 차지란 메모리 :  " << sizeof(v) << endl;
+
 }
 
