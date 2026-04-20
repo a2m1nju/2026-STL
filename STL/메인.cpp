@@ -17,37 +17,35 @@
 #include <iostream>
 #include <array>
 #include <vector>
+#include <fstream>
+#include <algorithm>
 #include "save.h"
 #include "ZString.h"
 using namespace std;
 extern bool 관찰;
 
-// ilerator로 a를 순회
-// element access - at, opertator[], front, back, data
 int main() 
 {
-	//array<ZString, 5> a{ "1", "22", "333", "4444", "55555"};
-	array<int, 5> a{ 1, 2, 3, 4, 5 };
+	save("메인.cpp");
 
-
-	// at() - 경계를 검사하고 싶다면 이 함수를 사용하면 된다.
-	// c++은 속도를 최우선으로 하는 언어이다
-	// 시간이 걸리는 at()을 다른 함수로 제공하는 이유이다
-	// at()은 예외를 던진다
-
-	while(true) {
-		cout << "찾을 원소는? : ";
-		int num;
-		cin >> num;
-
-		try {
-			cout << a.at(num) << endl;
-		}
-		catch(std::exception& e) {
-			cout << e.what() << endl;  // 표준예외를 출력한다
-		}
+	vector<ZString> v;
+	// [문제] "메인.cpp"에 있는 모든 단어를 v에 저장하라
+	ifstream in{ "메인.cpp" };
+	if (not in) {
+		return 0;
 	}
 
-	save("메인.cpp");
+	ZString zs;
+	while (in >> zs) {
+		v.push_back(zs);
+	}
+
+	sort(v.begin(), v.end(), [](const ZString& a, const ZString& b) {
+		return a.size() < b.size();
+		});
+
+	for (const ZString& zs : v) {
+		cout << zs << endl;
+	}
 }
 
