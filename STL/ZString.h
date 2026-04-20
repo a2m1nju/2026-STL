@@ -16,7 +16,7 @@ public:
 
 
 	// 이동 - c++11 부터 지원되는  move semantics
-	ZString(ZString&&);
+	ZString(ZString&&); //noexcept; // 26.04.20 move에서 예외를 던지지 않는다
 	ZString& operator=(ZString&&);
 
 
@@ -33,7 +33,7 @@ public:
 
 	void special(std::string) const;
 
-	friend std::ostream& operator<<(std::ostream& os, const ZString& zs);
+	friend std::ostream& operator<<(std::ostream& os, const ZString& zs); //noexcept; // 26.04.20 move에서 예외를 던지지 않는다;
 
 	// 파일에서 읽어오려고 만듦 - 2026.04.13
 	friend std::istream& operator >> (std::istream& is, ZString& zs);

@@ -67,7 +67,7 @@ void ZString::show() const
 
 
 
-ZString::ZString(const ZString& other)
+ZString::ZString(const ZString& other)// noexcept // 26.04.20 move에서 예외를 던지지 않는다
 	:id{ ++gid }
 {
 	len = other.len;
@@ -79,7 +79,7 @@ ZString::ZString(const ZString& other)
 		
 }
 
-ZString& ZString::operator=(const ZString& other) 
+ZString& ZString::operator=(const ZString& other)// noexcept // 26.04.20 move에서 예외를 던지지 않는다
 {
 	if (this == &other)
 		return *this;

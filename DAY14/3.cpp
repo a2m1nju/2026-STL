@@ -10,13 +10,10 @@
 
 // [메모]
 // STL 컨테이너 - containers are objects that store other objects
-// Sequence Container
-// - array<T,N> - 유일하게 컴파일 타임에 size 결정 -> STACK, DATA
-// - vector<T> - dynamic (size) array -> free-store에 data관리
+// 
 
 #include <iostream>
 #include <array>
-#include <vector>
 #include "save.h"
 #include "ZString.h"
 using namespace std;
@@ -24,28 +21,29 @@ extern bool 관찰;
 
 // ilerator로 a를 순회
 // element access - at, opertator[], front, back, data
-int main() 
+int main()
 {
 	//array<ZString, 5> a{ "1", "22", "333", "4444", "55555"};
 	array<int, 5> a{ 1, 2, 3, 4, 5 };
 
 
-	// at() - 경계를 검사하고 싶다면 이 함수를 사용하면 된다.
-	// c++은 속도를 최우선으로 하는 언어이다
-	// 시간이 걸리는 at()을 다른 함수로 제공하는 이유이다
-	// at()은 예외를 던진다
-
-	while(true) {
+	// at()
+	while (true) {
 		cout << "찾을 원소는? : ";
 		int num;
 		cin >> num;
 
-		try {
-			cout << a.at(num) << endl;
+		// 검사코드가 ㅈㄴ반복도디면 당연히 느려지겠죠
+		// 속도에 방해되는걸 날려버리는게 좋음
+		// 그래서 이런 코딩을 하지 않는게 좋음
+		if (num > 0 or a.size() <= num) {
+			cout << "다시입력" << endl;
 		}
-		catch(std::exception& e) {
-			cout << e.what() << endl;  // 표준예외를 출력한다
+		else {
+			cout << num << "번 - " << *(a.data() + sizeof(int) * num) << endl;
 		}
+		//cout << num << "번 - " << a[num] << endl;
+		//cout << num << "번 - " << *(a.data() + sizeof(int) * num) << endl;
 	}
 
 	save("메인.cpp");
