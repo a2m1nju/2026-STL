@@ -29,7 +29,8 @@ int main()
 	save("메인.cpp");
 
 	vector<int> v{ 1,2,3,4,5 };
-	
-	cout << "v가 저장할 수 있는 최대 int 개수 : " << v.max_size() << endl;
+	cout << sizeof v << endl;
+	cout << addressof(v) << endl;
+	cout << typeid(v) << endl;
 }
 
