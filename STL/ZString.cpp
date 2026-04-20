@@ -37,6 +37,11 @@ size_t ZString::getlen() const
 	return len;
 }
 
+size_t ZString::size() const 
+{
+	return len;
+}
+
 
 void ZString::special(std::string 동작) const
 {
@@ -52,6 +57,14 @@ void ZString::special(std::string 동작) const
 	std::println("[{:7}] {:8} - 객체:{:#014X}, 글자: {:#014X}, 개수: {:<6}, 내용:{} ",
 		id, 동작, (long long)this, (long long)p.get(), len, 글자); 
 }
+
+/*
+void ZString::show() const
+{
+
+}
+*/
+
 
 
 ZString::ZString(const ZString& other)

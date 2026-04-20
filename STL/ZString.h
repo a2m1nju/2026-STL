@@ -22,9 +22,13 @@ public:
 
 	// 연산자 오버로딩
 	
-	// 인터페이스
+	// 인터페이스 - 나중에 삭제
 	size_t getlen() const;
 
+	// STL 컨테이너가 되려면 다음 함수정도는 제공해야
+	size_t size() const;
+
+	//void show() const;
 
 
 	void special(std::string) const;

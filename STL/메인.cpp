@@ -1,6 +1,6 @@
 /*
 2026년 1학기 STL 월56 화78
-4/14 7주 1일
+4/20 7주 2일
 */
 
 // 컴파일 환경 - Release / x64
@@ -10,7 +10,7 @@
 
 // [메모]
 // STL 컨테이너 - containers are objects that store other objects
-
+// 
 
 #include <iostream>
 #include <array>
@@ -23,16 +23,22 @@ extern bool 관찰;
 // element access - at, opertator[], front, back, data
 int main() 
 {
-	array<ZString, 2> a{ "1", "333" }; // a -> container
+	array<ZString, 5> a{ "1", "22", "333", "4444", "55555"};
 	
+	//array<ZString,5>::iterator i = a.begin(); -> 이걸 밑에처럼 씀
+	auto i = a.begin();
+
+	// i < a.end -> 이렇게 쓸 순 있지만 컨티구어스 상황일때만 가능한?
+	for (auto i = a.begin(); i != a.end(); ++i) { // 꼭 ++i로 써야함
+		cout << (*i).size() << endl;
+		cout << (*i) << endl;
+
+	}
 	//array<array<ZString, 2>, 10> b;
 	//vector<array<ZString, 2>> v;  -> 보통은 이렇게 씀
 
 	a.fill("2026.04.14");
 
-	for (const ZString& zs : a) {
-		cout << zs << endl;
-	}
 
 	save("메인.cpp");
 }
