@@ -23,11 +23,28 @@ extern bool 관찰;
 // element access - at, opertator[], front, back, data
 int main() 
 {
-	array<ZString, 5> a{ "1", "22", "333", "4444", "55555"};
-	a.begin()->show();
-	a[0].show();
-	a.front().show();
-	a.data()->show();
+	//array<ZString, 5> a{ "1", "22", "333", "4444", "55555"};
+	array<int, 5> a{ 1, 2, 3, 4, 5 };
+
+
+	// at()
+	while(true) {
+		cout << "찾을 원소는? : ";
+		int num;
+		cin >> num;
+
+		// 검사코드가 ㅈㄴ반복도디면 당연히 느려지겠죠
+		// 속도에 방해되는걸 날려버리는게 좋음
+		// 그래서 이런 코딩을 하지 않는게 좋음
+		if (num > 0 or a.size() <= num) {
+			cout << "다시입력" << endl;
+		}
+		else {
+			cout << num << "번 - " << *(a.data() + sizeof(int) * num) << endl;
+		}
+		//cout << num << "번 - " << a[num] << endl;
+		//cout << num << "번 - " << *(a.data() + sizeof(int) * num) << endl;
+	}
 
 	save("메인.cpp");
 }

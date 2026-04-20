@@ -61,7 +61,7 @@ void ZString::special(std::string µø¿€) const
 
 void ZString::show() const
 {
-
+	std::cout << *this << '\n';
 }
 
 
