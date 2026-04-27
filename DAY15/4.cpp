@@ -42,7 +42,7 @@ int main()
 			cout << "현재 용량 : " << v.capacity() << endl;
 		}
 
-		
+
 	}
 
 }
