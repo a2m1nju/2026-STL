@@ -31,7 +31,7 @@ int main()
 	save("메인.cpp");
 
 	vector<ZString> v{ "1","22","333" };
-	v.reserve(10); 
+	v.reserve(10);
 	관찰 = true;
 	cout << "v의 원소에 접근" << endl;
 	v.emplace_back("4444");
@@ -40,7 +40,7 @@ int main()
 	관찰 = false;
 
 	cout << "v의 원소에 접근" << endl;
-	for (ZString& zs : v) { 
+	for (ZString& zs : v) {
 		cout << zs << endl;
 	}
 
