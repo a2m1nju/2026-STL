@@ -22,8 +22,8 @@ extern bool 관찰;
 int main()
 {
 	save("메인.cpp");
-	
-	// [문제] "메인.cpp"에 알파벳 소문자가 몇 개나 있는지 다음과 같이 출력하라
+
+	// [문제] "메인.cpp"에 알파벳 소문자가 몇 개나 있는지다음과 같이 출력하라
 	// a - 10,  b - 5, 중간생략 , z - 1
 
 	// vector<int> v; -> 이건 가변? 이라서 쓰면 안된다?
@@ -45,7 +45,7 @@ int main()
 	}
 
 	for (int i = 0; i < alpha.size(); ++i) {
-		cout << static_cast<char> ('a' + i) << "-" << alpha[i] << endl;
+		cout << static_cast<char>('a' + i) << "-" << alpha[i] << endl;
 	}
 
 
