@@ -1,6 +1,6 @@
 /*
 2026년 1학기 STL 월56 화78
-4/20 7주 2일
+4/27 8주 2일
 */
 
 // 컴파일 환경 - Release / x64
@@ -26,15 +26,16 @@
 using namespace std;
 extern bool 관찰;
 
-int main() 
+int main()
 {
 	save("메인.cpp");
 
-	// [문제] 키보드에서 입력한 모든 정수의 합계를 출력하라
-	
-	cout <<"합계 : " << accumulate(istream_iterator<int> {cin}, {}, 0LL) << endl;
+	vector<ZString> v{ "!","22","333","4444","55555" };
+	cout << "v의 원소에 접근" << endl;
+	for (ZString& zs : v) { // 레퍼런스를 붙여서 원본을 사용하도록 함
+		cout << zs << endl;
+	}
 
-	
 
 }
 

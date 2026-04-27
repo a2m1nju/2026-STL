@@ -12,7 +12,7 @@
 // 스마트 포인터 -> 콜러블 타입 -> 실습 -> STL
 
 // c++언어의 보증사항
-// 프로그램이 정상 종료시 (return문, exit와는 다름) 스택에 생성된 지역객체를
+// 프로그램이 정상 종료시 (return문 -> exit와는 다름) 스택에 생성된 지역객체를
 // 반드시 소멸됨을 보장한다.
 // stack-unwinding
 
@@ -42,8 +42,6 @@ private:
 int main()
 {
 	unique_ptr<Dog[]>p{ new Dog[10] };
-
-
 
 	save("메인.cpp");
 

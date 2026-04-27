@@ -46,7 +46,7 @@ int main()
 		long long sum = accumulate(p.get(), p.get() + num, 0LL);
 
 		cout << "1부터 " << num << "까지의 합계 : " << sum << endl;
-		delete[] p;
+		//delete[] p;
 	}
 
 	save("메인.cpp");

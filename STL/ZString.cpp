@@ -2,6 +2,7 @@
 // 26.04.13
 #include <print>
 #include <string>
+#include <algorithm>
 #include "ZString.h"
 
 size_t ZString::gid{}; // 외부에서 초기화
@@ -58,13 +59,18 @@ void ZString::special(std::string 동작) const
 		id, 동작, (long long)this, (long long)p.get(), len, 글자); 
 }
 
-
+/*
 void ZString::show() const
 {
 	std::cout << *this << '\n';
 }
+*/
 
 
+void ZString::show() const
+{
+	special("show");
+}
 
 
 ZString::ZString(const ZString& other)// noexcept // 26.04.20 move에서 예외를 던지지 않는다
@@ -143,4 +149,16 @@ std::istream& operator >> (std::istream& is, ZString& zs)
 
 	return is;
 
+}
+
+ // std::lexicographical_compare 사용 가능
+
+bool ZString::operator<(const ZString& other) const {
+	// 문자열의 실제 내용(p)을 비교하여 사전 순서 판단
+	// 두 문자열의 길이를 고려하여 비교함
+	size_t min_len = std::min(len, other.len);
+	for (size_t i = 0; i < min_len; ++i) {
+		if (p[i] != other.p[i]) return p[i] < other.p[i];
+	}
+	return len < other.len;
 }

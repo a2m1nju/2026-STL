@@ -65,7 +65,7 @@ int main()
 	array<Dog, 1'000> dogs;
 	in.read((char*)dogs.data(), dogs.size() * sizeof(Dog));
 
-	for (const Dog dog : dogs) { // ²À const¸¦ ºÙ¿©ÇáµÊ
+	for (const Dog& dog : dogs) { // ²À const¸¦ ºÙ¿©ÇáµÊ
 		cout << dog << endl;
 	}
 
