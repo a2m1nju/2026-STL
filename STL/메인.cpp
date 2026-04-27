@@ -30,18 +30,16 @@ int main()
 {
 	save("메인.cpp");
 
-	vector<ZString> v{ "1","22","333" };
-	v.reserve(10); 
-	관찰 = true;
-	cout << "v의 원소에 접근" << endl;
-	v.emplace_back("4444");
-	v.emplace_back("55555");
-	// v.emplace_back(ZString{"4444"}); -> 이러면 push_back이랑 똑같아짐
-	관찰 = false;
-
-	cout << "v의 원소에 접근" << endl;
-	for (ZString& zs : v) { 
-		cout << zs << endl;
+	// 벡터가 메모리를 확장하는 순간을 관찰
+	vector<int> v;
+	while (true) {
+		v.push_back(1);
+		if (v.size() == v.capacity()) {
+			cout << "원소 개수 : " << v.size() << endl;
+			cout << "확보한 개수 : " << v.capacity() << endl;
+			cout << endl;
+		}
+		
 	}
 
 }
