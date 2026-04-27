@@ -126,6 +126,7 @@
     <ClCompile Include="..\STL\save.cpp" />
     <ClCompile Include="..\STL\ZString.cpp" />
     <ClCompile Include="..\STL\메인.cpp" />
+    <ClCompile Include="1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\STL\save.h" />
