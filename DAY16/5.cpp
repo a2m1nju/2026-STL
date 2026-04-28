@@ -24,15 +24,21 @@ int main()
 {
 	//[문제] "22" 다음에 "333"을 추가하라
 
-	list <ZString> v{ "1", "22","4444","55555" };
-	for (int i = 0; i < 20; ++i) {
-		v.emplace(v.begin() + 2, "333");
-	}
-	
+	vector<ZString> v{ "1", "22","4444","55555" };
+
+	v.insert(v.begin() + 2, "333");
+	// v.insert(++++v.begin(), "333"); -> 이렇게도 쓸 순 있지만 싸이코 같음
+	// -> 이렇게 하는건 벡터한테 안좋음
+
 	for (const ZString& zs : v) {
 		cout << zs << endl;
 	}
-				
+
+
+
+
+
+
+
 	save("메인.cpp");
 }
-

@@ -7916,3 +7916,289 @@ int main()
 	save("메인.cpp");
 }
 
+2026-04-28 17:03:24.5033130
+
+
+========================================
+저장한 시간 - 2026-04-28 17:03:24.5033130
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+4/28 9주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+
+#include <iostream>
+#include <array>
+#include <vector>
+#include <fstream>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+int main()
+{
+	// [문제] v에서 "22"를 제거하라. 
+
+	관찰 = true;
+	vector<ZString> v{ "1", "22", "333"};
+	remove(v.begin(), v.end(), "22");
+
+	for (int i = 0; i < v.size(); ++i) {
+		cout << v[i] << endl;
+	}
+	관찰 = false;
+
+	save("메인.cpp");
+}
+
+2026-04-28 17:05:16.9301062
+
+
+========================================
+저장한 시간 - 2026-04-28 17:05:16.9301062
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+4/28 9주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+
+#include <iostream>
+#include <array>
+#include <vector>
+#include <fstream>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+int main()
+{
+	// [문제] v에서 "22"를 제거하라. 
+
+	vector<ZString> v{ "1", "22", "333"};
+	remove(v.begin(), v.end(), "22");
+
+	for (int i = 0; i < v.size(); ++i) {
+		//cout << v[i] << endl;
+		v[i].show();
+	}
+				
+	save("메인.cpp");
+}
+
+2026-04-28 17:12:49.9593106
+
+
+========================================
+저장한 시간 - 2026-04-28 17:12:49.9593106
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+4/28 9주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+
+#include <iostream>
+#include <array>
+#include <vector>
+#include <fstream>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+int main()
+{
+	//[문제] "22" 다음에 "333"을 추가하라
+
+	vector<ZString> v{ "1", "22","4444","55555"};
+	
+	v.insert(v.begin() + 2, "333");
+	v.insert(++++v.begin(), "333");
+
+	for (const ZString& zs : v) {
+		cout << zs << endl;
+	}
+
+
+	
+				
+	save("메인.cpp");
+}
+
+2026-04-28 17:16:47.1919809
+
+
+========================================
+저장한 시간 - 2026-04-28 17:16:47.1919809
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+4/28 9주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+
+#include <iostream>
+#include <array>
+#include <vector>
+#include <fstream>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+int main()
+{
+	//[문제] "22" 다음에 "333"을 추가하라
+
+	/*
+	vector<ZString> v{ "1", "22","4444","55555"};
+	
+	v.insert(v.begin() + 2, "333");
+	// v.insert(++++v.begin(), "333"); -> 이렇게도 쓸 순 있지만 싸이코 같음
+	// -> 이렇게 하는건 벡터한테 안좋음
+
+	for (const ZString& zs : v) {
+		cout << zs << endl;
+	}
+	*/
+
+	list <ZString> v{ "1", "22","4444","55555" };
+	v.insert(++++v.begin(), "333");
+
+
+	
+				
+	save("메인.cpp");
+}
+
+2026-04-28 17:17:06.0441658
+
+
+========================================
+저장한 시간 - 2026-04-28 17:17:06.0441658
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+4/28 9주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+
+#include <iostream>
+#include <array>
+#include <vector>
+#include <fstream>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+int main()
+{
+	//[문제] "22" 다음에 "333"을 추가하라
+
+	/*
+	vector<ZString> v{ "1", "22","4444","55555"};
+	
+	v.insert(v.begin() + 2, "333");
+	// v.insert(++++v.begin(), "333"); -> 이렇게도 쓸 순 있지만 싸이코 같음
+	// -> 이렇게 하는건 벡터한테 안좋음
+
+	for (const ZString& zs : v) {
+		cout << zs << endl;
+	}
+	*/
+
+	list <ZString> v{ "1", "22","4444","55555" };
+	v.insert(++++v.begin(), "333");
+
+	for (const ZString& zs : v) {
+		cout << zs << endl;
+	}
+				
+	save("메인.cpp");
+}
+
+2026-04-28 17:17:55.2337406
+
+
+========================================
+저장한 시간 - 2026-04-28 17:17:55.2337406
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+4/28 9주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+
+#include <iostream>
+#include <array>
+#include <vector>
+#include <fstream>
+#include <list>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+int main()
+{
+	//[문제] "22" 다음에 "333"을 추가하라
+
+	list <ZString> v{ "1", "22","4444","55555" };
+	v.emplace(++++v.begin(), "333");
+
+	for (const ZString& zs : v) {
+		cout << zs << endl;
+	}
+				
+	save("메인.cpp");
+}
+

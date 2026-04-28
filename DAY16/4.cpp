@@ -14,7 +14,6 @@
 #include <array>
 #include <vector>
 #include <fstream>
-#include <list>
 #include "save.h"
 #include "ZString.h"
 using namespace std;
@@ -22,17 +21,16 @@ extern bool 관찰;
 
 int main()
 {
-	//[문제] "22" 다음에 "333"을 추가하라
+	// [문제] v에서 "22"를 제거하라. 
 
-	list <ZString> v{ "1", "22","4444","55555" };
-	for (int i = 0; i < 20; ++i) {
-		v.emplace(v.begin() + 2, "333");
+	vector<ZString> v{ "1", "22", "333" };
+	remove(v.begin(), v.end(), "22");
+
+	for (int i = 0; i < v.size(); ++i) {
+		cout << v[i] << endl;
+		//v[i].show();
 	}
-	
-	for (const ZString& zs : v) {
-		cout << zs << endl;
-	}
-				
+
 	save("메인.cpp");
 }
 

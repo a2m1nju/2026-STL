@@ -25,14 +25,13 @@ int main()
 	//[문제] "22" 다음에 "333"을 추가하라
 
 	list <ZString> v{ "1", "22","4444","55555" };
-	for (int i = 0; i < 20; ++i) {
-		v.emplace(v.begin() + 2, "333");
-	}
-	
+
+	v.emplace(++v.begin(), "333"); // 이렇게 쓸땐 리스트가 훨씬 효율적? -> 그래도 이렇게 쓰는 건 안좋다
+
 	for (const ZString& zs : v) {
 		cout << zs << endl;
 	}
-				
+
 	save("메인.cpp");
 }
 
