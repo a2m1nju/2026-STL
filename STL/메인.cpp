@@ -21,22 +21,17 @@ extern bool 관찰;
 
 int main()
 {
-	// [문제] v에서 3을 제거하라. 
-	// v.size() == 4 
-	// 원소 {4, 1, 2, 4, 5}
-	// v.capacity() == 5;
-	// 원소제거는 std::remove()를 이용하면 된다.
+	// [문제] v에서 "22"를 제거하라. 
 
-	vector<int> v{ 1,2,3,4,5 };
-	//vector<int>::iterator newEnd = remove(v.begin(), v.end(), 3);
-	//v.erase(newEnd, v.end());
-	//v.erase(remove(v.begin(), v.end(), 3), v.end()); -> c++20 부터는 이렇게 안쓰는?
-	erase(v, 3);
+	vector<ZString> v{ "1", "22", "333"};
+	remove(v.begin(), v.end(), "22");
 
 	for (int i = 0; i < v.size(); ++i) {
-		cout << v[i] << " ";
+		cout << v[i] << endl;
 	}
-	cout << endl;
+
+
+
 
 	save("메인.cpp");
 }

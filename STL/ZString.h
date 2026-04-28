@@ -20,7 +20,8 @@ public:
 	ZString& operator=(ZString&&);
 
 
-	// 연산자 오버로딩
+	// 연산자 오버로딩 - 26.04.28
+	bool operator==(const ZString& rhs) const;
 	
 	// 인터페이스 - 나중에 삭제
 	size_t getlen() const;
