@@ -22,7 +22,7 @@ extern bool 관찰;
 
 int main()
 {
-	ifstream in{ "2026년 1학기 STL 월56화78.txt"};
+	ifstream in{ "2026년 1학기 STL 월56화78.txt" };
 
 	if (not in) {
 		cout << "error" << endl;
@@ -40,7 +40,7 @@ int main()
 	for (const ZString& Zs : words) {
 		cout << Zs << endl;
 	}
-			
+
 	cout << "단어의 수 : " << words.size() << endl;
 
 	save("메인.cpp");

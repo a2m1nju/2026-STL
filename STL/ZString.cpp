@@ -64,6 +64,11 @@ size_t ZString::size() const
 	return len;
 }
 
+// 2026.05.11
+char* ZString::data() const
+{
+	return p.get();
+}
 
 void ZString::special(std::string µø¿€) const
 {

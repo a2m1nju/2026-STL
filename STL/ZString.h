@@ -29,6 +29,9 @@ public:
 	// STL 컨테이너가 되려면 다음 함수정도는 제공해야
 	size_t size() const;
 
+	// 2026.05.11
+	char* data() const;
+
 	void show() const;
 
 
