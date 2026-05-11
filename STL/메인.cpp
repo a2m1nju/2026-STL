@@ -29,26 +29,29 @@ int main()
 		return 1234;
 	}
 
-	cout << "데이터 읽는 중" << endl;
 	list <ZString> words{ istream_iterator<ZString>{in},{} };
 
-	cout << "정렬하는 중" << endl;
 	words.sort([](const ZString& a, const ZString& b) -> bool {
 		return lexicographical_compare(a.data(), a.data() + a.size(), b.data(), b.data() + b.size());
 		});
 	cout << endl;
 
+
+	// 정렬한 이후라면 중복단어 제거
+	// defalut operator== 으로 판정
+	words.unique();
+
+
+
 	for (const ZString& Zs : words) {
 		cout << Zs << endl;
 	}
 			
-	cout << "단어의 수 : " << words.size() << endl;
+	cout << "중복을 제거하고 남은 단어의 수 : " << words.size() << endl;
 
 	save("메인.cpp");
 }
 
-// 리스트 정렬시간 5186 us
-// 벡터 정렬시간 3608 
 
 
 
