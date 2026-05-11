@@ -29,6 +29,7 @@ int main()
 		return 1234;
 	}
 
+	cout << "데이터 읽는 중" << endl;
 	list <ZString> words{ istream_iterator<ZString>{in},{} };
 
 	cout << "정렬하는 중" << endl;
@@ -47,6 +48,7 @@ int main()
 }
 
 // 리스트 정렬시간 5186 us
+// 벡터 정렬시간 3608 
 
 
 
