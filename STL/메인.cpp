@@ -25,6 +25,8 @@
 #include <list>
 #include <chrono>
 #include <algorithm>
+#include <ranges>
+#include <string>
 #include "save.h"
 #include "ZString.h"
 using namespace std;
@@ -34,15 +36,33 @@ extern bool 관찰;
 
 int main()
 {
-	ZString zs{"The quick brown fox jumps over the lazy dog"};
+	string zs{"The quick brown fox jumps over the lazy dog"};
 
 	sort(zs.data(), zs.data() + zs.size());
-	cout << zs << endl;
+	
+	//[문제] 거꾸로 출력하시오
+
+	/* 당연히 이렇게 하면 0점임
+	char* p = zs.data() + zs.size();
+	for (int i = 0; i < zs.size(); ++i) {
+		cout << *--p;
+	}
+	*/
+
+	for (auto i = zs.rbegin(); i != zs.rend(); ++i) {
+		cout << *i << " ";
+	}
+	cout << endl;
+
+	for (char c : zs | views::reverse) {
+		cout << c << " ";
+	}
+	cout << endl;
+
+
+	
 
 
 	save("메인.cpp");
 }
-
-
-
 
