@@ -60,7 +60,7 @@ int main()
 	cout << endl;
 
 
-
+	// 이건 스트링일때
 
 
 	save("메인.cpp");

@@ -54,6 +54,16 @@ bool ZString::operator==(const ZString& rhs) const
 
 }
 
+// 반복자 인터페이스 - 26.05.12
+char* ZString::begin() const 
+{
+	return p.get();
+}
+char* ZString::end() const 
+{
+	return p.get() + len;
+}
+
 size_t ZString::getlen() const 
 {
 	return len;

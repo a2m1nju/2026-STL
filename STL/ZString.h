@@ -22,11 +22,15 @@ public:
 
 	// 연산자 오버로딩 - 26.04.28
 	bool operator==(const ZString& rhs) const;
+
+	// 반복자 인터페이스 - 26.05.12
+	char* begin() const;
+	char* end() const;
 	
 	// 인터페이스 - 나중에 삭제
 	size_t getlen() const;
 
-	// STL 컨테이너가 되려면 다음 함수정도는 제공해야
+	// STL 컨테이너가 되려면 다음 함수정도는 제공해야 - 26.04.20
 	size_t size() const;
 
 	// 2026.05.11

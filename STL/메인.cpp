@@ -39,15 +39,9 @@ int main()
 {
 	ZString zs{"The quick brown fox jumps over the lazy dog"};
 
-	sort(zs.data(), zs.data() + zs.size());
-
-	span<char> s{ zs.data(), zs.size() };
-	
-	//[문제] 거꾸로 출력하시오
-	for (char c : s | views::reverse) {
-		cout << c << " ";
+	for (char c : zs) {
+		cout << zs << endl;
 	}
-	cout << endl;
 
 
 	save("메인.cpp");
