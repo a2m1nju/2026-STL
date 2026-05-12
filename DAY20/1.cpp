@@ -34,7 +34,7 @@ extern bool °üÂû;
 
 int main()
 {
-	ZString zs{"The quick brown fox jumps over the lazy dog"};
+	ZString zs{ "The quick brown fox jumps over the lazy dog" };
 
 	sort(zs.data(), zs.data() + zs.size());
 	cout << zs << endl;
