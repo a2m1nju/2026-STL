@@ -26,8 +26,7 @@ int main()
 	ZString zs{ "sphinx of black quartz 3 judge my 6 vow" };
 
 	// [문제] zs에서 처음 나오는 짝수를 찾아라
-	ZString::iterator p = find_if(zs.begin(), zs.end(), c);
-	find_if(zs.begin(), zs.end(), [](char c) {
+	ZString::iterator p = find_if(zs.begin(), zs.end(), [](char c) {
 		if (isdigit(c)) {
 			return not (c & 1); // 이렇게 하는게 더 좋겠다
 		}
