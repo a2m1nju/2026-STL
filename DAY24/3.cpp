@@ -24,14 +24,21 @@ extern bool 관찰;
 int main()
 {
 	ZString zs{ "sphinx of black quartz 3 judge my 6 vow" };
-	
+
 	// [문제] zs에서 처음 나오는 짝수를 찾아라
 	ZString::iterator p = find_if(zs.begin(), zs.end(), c);
 	find_if(zs.begin(), zs.end(), [](char c) {
 		if (isdigit(c)) {
-			return not (c & 1); // 이렇게 하는게 더 좋겠다
+			// num = atoi(c); -> 이건 너무 과한 코드
+			int num = c - '0';
+
+			if (num % 2 == 0) {
+				return true;
+			}
+			return false;
 		}
 		});
+	// 이미 숫자 판정을 했는데 또 짝수를 이렇게 판단한다고?
 
 	if (p != zs.end()) {
 		cout << "짝수 발견 -" << p - zs.begin() + 1 << endl;

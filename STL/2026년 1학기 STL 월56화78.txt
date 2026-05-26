@@ -8619,3 +8619,524 @@ int main()
 	save("메인.cpp");
 }
 
+2026-05-18 13:52:15.5742601
+
+
+========================================
+저장한 시간 - 2026-05-18 13:52:15.5742601
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+5/18 11주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 반복자란 무엇인가?
+// 이걸 사용하는 이유는 ?
+// 반복자의 종류를 구분한 이유?
+// ZString이 표준 반복자를 제공하려면?
+// STL 반복자 - Iterators are a generalization of pointers 
+//				that allow a C++ program to work with different data structures in a uniform manner. 
+
+#include <iostream>
+#include <deque>
+#include <vector>
+#include <list>
+#include <chrono>
+#include <algorithm>
+#include <ranges>
+#include <string>
+#include <span>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+
+
+int main()
+{
+	// 반복자를 만들어 기능을 이해해 본다
+	ostream_iterator<char> p{ cout };
+
+	cout << "반복자의 크기 : " << sizeof(p) << endl;
+
+
+	save("메인.cpp");
+}
+
+2026-05-18 13:58:24.3460216
+
+
+========================================
+저장한 시간 - 2026-05-18 13:58:24.3460216
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+5/18 11주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 반복자란 무엇인가?
+// 이걸 사용하는 이유는 ?
+// 반복자의 종류를 구분한 이유?
+// ZString이 표준 반복자를 제공하려면?
+// STL 반복자 - Iterators are a generalization of pointers 
+//				that allow a C++ program to work with different data structures in a uniform manner. 
+
+#include <iostream>
+#include <deque>
+#include <vector>
+#include <list>
+#include <chrono>
+#include <algorithm>
+#include <ranges>
+#include <string>
+#include <span>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+
+
+int main()
+{
+	// 반복자를 만들어 기능을 이해해 본다
+	ostream_iterator<char> p{ cout, "@@@@\n"};
+
+	*p = 'A';
+	++p;
+	*p = 'B';
+	++p;
+	*p = 'C';
+	//cout << "반복자의 크기 : " << sizeof(p) << endl;
+
+
+	save("메인.cpp");
+}
+
+2026-05-18 14:12:37.4828706
+
+
+========================================
+저장한 시간 - 2026-05-18 14:12:37.4828706
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+5/18 11주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 반복자란 무엇인가?
+// 이걸 사용하는 이유는 ?
+// 반복자의 종류를 구분한 이유?
+// ZString이 표준 반복자를 제공하려면?
+// STL 반복자 - Iterators are a generalization of pointers 
+//				that allow a C++ program to work with different data structures in a uniform manner. 
+
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+
+
+int main()
+{
+	// 반복자를 만들어 기능을 이해해 본다
+	vector <char> v;
+	v.reserve(10);
+	auto p = v.begin();
+
+	cout << "벡터 반복자 크기 : " << sizeof(v) << endl;
+
+	*p = 'A';
+	++p;
+	*p = 'B';
+	++p;
+	*p = 'C';
+
+
+	save("메인.cpp");
+}
+
+2026-05-18 14:14:02.6991408
+
+
+========================================
+저장한 시간 - 2026-05-18 14:14:02.6991408
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+5/18 11주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 반복자란 무엇인가?
+// 이걸 사용하는 이유는 ?
+// 반복자의 종류를 구분한 이유?
+// ZString이 표준 반복자를 제공하려면?
+// STL 반복자 - Iterators are a generalization of pointers 
+//				that allow a C++ program to work with different data structures in a uniform manner. 
+
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+
+
+int main()
+{
+	// 반복자를 만들어 기능을 이해해 본다
+	vector <char> v;
+	v.reserve(10);
+	auto p = v.begin();
+
+	cout << "벡터 반복자 크기 : " << sizeof(v) << endl;
+
+	*p = 'A';
+	++p;
+	*p = 'B';
+	++p;
+	*p = 'C';
+
+	for (int i = 0; i < 10; ++i) {
+		cout << v[i] << endl;
+	}
+
+
+	save("메인.cpp");
+}
+
+2026-05-18 14:44:15.3997730
+
+
+========================================
+저장한 시간 - 2026-05-18 14:44:15.3997730
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+5/18 11주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 반복자란 무엇인가?
+// 이걸 사용하는 이유는 ?
+// 반복자의 종류를 구분한 이유?
+// ZString이 표준 반복자를 제공하려면?
+// STL 반복자 - Iterators are a generalization of pointers 
+//				that allow a C++ program to work with different data structures in a uniform manner. 
+
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+template<class 반복자>
+void f(반복자 iter)
+{
+	//cout << typeid(iter).name() << endl;
+	// 클래스 타입으롤 부터 여분(iterator taits)의 정보를
+	// itertator_category, value_type, pointer, referance
+	cout << typeid(반복자::iterator_category).name() << endl;
+
+}
+
+int main()
+{
+	// 반복자의 종류를 구부하기
+
+	f(ostream_iterator<int>{cout});
+
+
+	save("메인.cpp");
+}
+
+2026-05-18 14:51:50.4541525
+
+
+========================================
+저장한 시간 - 2026-05-18 14:51:50.4541525
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+5/18 11주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 반복자란 무엇인가?
+// 이걸 사용하는 이유는 ?
+// 반복자의 종류를 구분한 이유?
+// ZString이 표준 반복자를 제공하려면?
+// STL 반복자 - Iterators are a generalization of pointers 
+//				that allow a C++ program to work with different data structures in a uniform manner. 
+
+#include <iostream>
+#include <vector>
+#include <forward_list>
+#include <list>
+#include <deque>
+#include <array>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+template<class 반복자>
+void f(반복자 iter)
+{
+	//cout << typeid(iter).name() << endl;
+	// 클래스 타입으롤 부터 여분(iterator taits)의 정보를
+	// itertator_category, value_type, pointer, referance
+	cout << typeid(반복자::iterator_category).name() << endl;
+
+}
+
+int main()
+{
+	// 반복자의 종류를 구부하기
+	f(ostream_iterator<ZString>{clog});
+	
+	// 여기서 부터 hierarchy
+	f(istream_iterator<int>{cin});
+	f(forward_list<char>::const_iterator{});
+	f(list<float>{}.cbegin());
+
+	// 여기서부터는 random_access 가능한 반복자
+	f(deque<ZString>::reverse_iterator{});
+
+	// 여기서부터는 contiguous 반복자
+	f(array<ZString, 0>::const_reverse_iterator{});
+	f(vector<ZString>::iterator{});
+
+
+	save("메인.cpp");
+}
+
+2026-05-18 14:52:25.5891507
+
+
+========================================
+저장한 시간 - 2026-05-18 14:52:25.5891507
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+5/18 11주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 반복자란 무엇인가?
+// 이걸 사용하는 이유는 ?
+// 반복자의 종류를 구분한 이유?
+// ZString이 표준 반복자를 제공하려면?
+// STL 반복자 - Iterators are a generalization of pointers 
+//				that allow a C++ program to work with different data structures in a uniform manner. 
+
+#include <iostream>
+#include <vector>
+#include <forward_list>
+#include <list>
+#include <deque>
+#include <array>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+template<class 반복자>
+void f(반복자 iter)
+{
+	//cout << typeid(iter).name() << endl;
+	// 클래스 타입으롤 부터 여분(iterator taits)의 정보를
+	// itertator_category, value_type, pointer, referance
+	cout << typeid(반복자::iterator_category).name() << endl;
+
+}
+
+int main()
+{
+	// 반복자의 종류를 구부하기
+	f(ostream_iterator<ZString>{clog});
+	
+	// 여기서 부터 hierarchy
+	f(istream_iterator<int>{cin});
+	f(forward_list<char>::const_iterator{});
+	f(list<float>{}.cbegin());
+
+	// 여기서부터는 random_access 가능한 반복자
+	f(deque<ZString>::reverse_iterator{});
+
+	// 여기서부터는 contiguous 반복자
+	f(array<ZString, 0>::const_reverse_iterator{});
+	f(vector<ZString>::iterator{});
+
+
+	save("메인.cpp");
+}
+
+2026-05-18 15:02:11.0535117
+
+
+========================================
+저장한 시간 - 2026-05-18 15:02:11.0535117
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+5/18 11주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 반복자란 무엇인가?
+// 이걸 사용하는 이유는 ?
+// 반복자의 종류를 구분한 이유?
+// ZString이 표준 반복자를 제공하려면?
+// STL 반복자 - Iterators are a generalization of pointers 
+//				that allow a C++ program to work with different data structures in a uniform manner. 
+
+#include <iostream>
+#include <vector>
+#include <forward_list>
+#include <list>
+#include <deque>
+#include <array>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+template<class 반복자>
+void f(반복자 iter)
+{
+	//cout << typeid(iter).name() << endl;
+	// 클래스 타입으롤 부터 여분(iterator taits)의 정보를
+	// itertator_category, value_type, pointer, referance
+	//cout << typeid(반복자::iterator_category).name() << endl;
+	cout << typeid(iterator_traits<반복자>::iterator_category).name() << endl;
+
+}
+
+int main()
+{
+	// 반복자의 종류를 구부하기
+	f(ostream_iterator<ZString>{clog});
+	
+	// 여기서 부터 hierarchy
+	f(istream_iterator<int>{cin});
+	f(forward_list<char>::const_iterator{});
+	f(list<float>{}.cbegin());
+
+	// 여기서부터는 random_access 가능한 반복자
+	f(deque<ZString>::reverse_iterator{});
+
+	// 여기서부터는 contiguous 반복자
+	f(array<ZString, 0>::const_reverse_iterator{});
+	f(vector<ZString>::iterator{});
+
+
+	save("메인.cpp");
+}
+
+2026-05-18 15:10:52.4953263
+
+
+========================================
+저장한 시간 - 2026-05-18 15:10:52.4953263
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+5/18 11주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 반복자란 무엇인가?
+// 이걸 사용하는 이유는 ?
+// 반복자의 종류를 구분한 이유?
+// ZString이 표준 반복자를 제공하려면?
+// STL 반복자 - Iterators are a generalization of pointers 
+//				that allow a C++ program to work with different data structures in a uniform manner. 
+
+#include <iostream>
+#include <algorithm>
+#include <ranges>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+int main()
+{
+	ZString zs{ "sphinx of black quartz judge my vow" };
+	sort(zs.begin(), zs.end());
+
+	//[문제] zs를 거꾸로 출력하라
+	for (char c : zs | views::reverse) {
+		cout << c;
+	}
+	cout << endl;
+
+
+	save("메인.cpp");
+}
+

@@ -64,6 +64,16 @@ char* ZString::end() const
 	return p.get() + len;
 }
 
+// 역방향 반복자 인터페이스 - 26.05.18
+char* ZString::rbegin() const
+{
+	return p.get() + len;
+}
+char* ZString::rend() const
+{
+	return p.get();
+}
+
 size_t ZString::getlen() const 
 {
 	return len;
