@@ -8,8 +8,8 @@
 class ZString {
 //2026.05.26
 // 표준 컨테이너라면 다음과 같은 타입을 제공해야겠다.
-	using iterator = ZString_Iterator;
-	using value_type = char;
+	//using iterator = ZString_Iterator;
+	//using value_type = char;
 
 public:
 	ZString();

@@ -9140,3 +9140,838 @@ int main()
 	save("메인.cpp");
 }
 
+2026-06-02 15:59:50.6545127
+
+
+========================================
+저장한 시간 - 2026-06-02 15:59:50.6545127
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+6/2 13주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 6.22 기말시험
+//
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main()
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		cout << "error" << endl;
+		return 111;
+	}
+
+	vector<ZString> v;
+	copy(istream_iterator<ZString>{in}, {}, back_inserter(v));
+
+	cout << "읽은 단어 수 : " << v.size() << endl;
+
+
+	save("메인.cpp");
+}
+
+
+2026-06-02 16:01:12.5186336
+
+
+========================================
+저장한 시간 - 2026-06-02 16:01:12.5186336
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+6/2 13주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 6.22 기말시험
+//
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main()
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		cout << "error" << endl;
+		return 111;
+	}
+
+	vector<ZString> v;
+	//copy(istream_iterator<ZString>{in}, {}, back_inserter(v));
+
+	cout << "읽은 단어 수 : " << v.size() << endl;
+
+	for (const ZString& zs : v)
+		cout << zs << " ";
+	cout << endl;
+
+
+	save("메인.cpp");
+}
+
+
+2026-06-02 16:01:23.1587672
+
+
+========================================
+저장한 시간 - 2026-06-02 16:01:23.1587672
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+6/2 13주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 6.22 기말시험
+//
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main()
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		cout << "error" << endl;
+		return 111;
+	}
+
+	vector<ZString> v;
+	//copy(istream_iterator<ZString>{in}, {}, back_inserter(v));
+
+	cout << "읽은 단어 수 : " << v.size() << endl;
+
+	for (const ZString& zs : v)
+		cout << zs << " ";
+	cout << endl;
+
+
+	save("메인.cpp");
+}
+
+
+2026-06-02 16:14:38.7759462
+
+
+========================================
+저장한 시간 - 2026-06-02 16:14:38.7759462
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+6/2 13주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 6.22 기말시험
+//
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main()
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		cout << "error" << endl;
+		return 111;
+	}
+
+	vector<ZString> v;
+	//copy(istream_iterator<ZString>{in}, {}, back_inserter(v));
+
+	cout << "읽은 단어 수 : " << v.size() << endl;
+
+	for (const ZString& zs : v)
+		cout << zs << " ";
+	cout << endl;
+
+	// [문제] 어떤 단어가 가장 많이 사용되었는지 알고싶다
+	// 많이 사용된 단어부터 단어와 개수를 화면에 출력하시오
+	map<ZString, size_t> 단어와개수;
+
+	for (const ZString& zs : v) {
+		단어와개수.insert(pair<ZString, size_t>(zs, 단어와개수.count(zs) + 1));
+	}
+	for (const std::pair<ZString, size_t>& p : 단어와개수) {
+		cout << p.first << "-" << p.second << endl;
+
+	}
+
+	//multimap<size_t, ZString> 개수와단어;
+	//개수와단어.find(!);
+
+
+	save("메인.cpp");
+}
+
+
+2026-06-02 16:15:07.0017572
+
+
+========================================
+저장한 시간 - 2026-06-02 16:15:07.0017572
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+6/2 13주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 6.22 기말시험
+//
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main()
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		cout << "error" << endl;
+		return 111;
+	}
+
+	vector<ZString> v;
+	//copy(istream_iterator<ZString>{in}, {}, back_inserter(v));
+
+	//cout << "읽은 단어 수 : " << v.size() << endl;
+
+	for (const ZString& zs : v)
+		cout << zs << " ";
+	cout << endl;
+
+	// [문제] 어떤 단어가 가장 많이 사용되었는지 알고싶다
+	// 많이 사용된 단어부터 단어와 개수를 화면에 출력하시오
+	map<ZString, size_t> 단어와개수;
+
+	for (const ZString& zs : v) {
+		단어와개수.insert(pair<ZString, size_t>(zs, 단어와개수.count(zs) + 1));
+	}
+	for (const std::pair<ZString, size_t>& p : 단어와개수) {
+		cout << p.first << "-" << p.second << endl;
+
+	}
+
+	//multimap<size_t, ZString> 개수와단어;
+	//개수와단어.find(!);
+
+
+	save("메인.cpp");
+}
+
+
+2026-06-02 16:18:15.7729680
+
+
+========================================
+저장한 시간 - 2026-06-02 16:18:15.7729680
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+6/2 13주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 6.22 기말시험
+//
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main()
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		cout << "error" << endl;
+		return 111;
+	}
+
+	vector<ZString> v;
+	//copy(istream_iterator<ZString>{in}, {}, back_inserter(v));
+
+	// [문제] 어떤 단어가 가장 많이 사용되었는지 알고싶다
+	// 많이 사용된 단어부터 단어와 개수를 화면에 출력하시오
+	map<ZString, size_t> 단어와개수;
+
+	for (const ZString& zs : v) {
+		++단어와개수[zs];
+		//단어와개수.insert(pair<ZString, size_t>(zs, 단어와개수.count(zs) + 1));
+	}
+
+	for (const auto& [단어, 개수] : 단어와개수) {
+		cout << 단어 << 개수 << endl;
+	}
+
+
+	for (const std::pair<ZString, size_t>& p : 단어와개수) {
+		cout << p.first << "-" << p.second << endl;
+
+	}
+
+	//multimap<size_t, ZString> 개수와단어;
+	//개수와단어.find(!);
+
+
+	save("메인.cpp");
+}
+
+
+2026-06-02 16:25:09.7811640
+
+
+========================================
+저장한 시간 - 2026-06-02 16:25:09.7811640
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+6/2 13주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 6.22 기말시험
+//
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main()
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		cout << "error" << endl;
+		return 111;
+	}
+
+	vector<ZString> v;
+	//copy(istream_iterator<ZString>{in}, {}, back_inserter(v));
+
+	cout << "읽은 단어 수 : " << v.size() << endl;
+
+	// [문제] 어떤 단어가 가장 많이 사용되었는지 알고싶다
+	// 많이 사용된 단어부터 단어와 개수를 화면에 출력하시오
+	map<ZString, size_t> 단어와개수;
+
+	for (const ZString& zs : v) {
+		++단어와개수[zs];
+		//단어와개수.insert(pair<ZString, size_t>(zs, 단어와개수.count(zs) + 1));
+	}
+
+	for (const auto& [단어, 개수] : 단어와개수) {
+		cout << 단어 << 개수 << endl;
+	}
+
+
+	for (const std::pair<ZString, size_t>& p : 단어와개수) {
+		cout << p.first << "-" << p.second << endl;
+
+	}
+
+	cout << "개별 단어의 개수 : " << 단어와개수.size() << endl;
+
+	//multimap<size_t, ZString> 개수와단어;
+	//개수와단어.find(!);
+
+	multimap<size_t, ZString> 개수와단어;
+	for (const auto& [단어, 개수] : 단어와개수)
+		개수와단어.insert(make_pair(개수, 단어));
+
+	for (const auto& [개수, 단어] : 개수와단어)
+		cout << 단어 << "\t -" << 개수 << endl;
+
+
+
+	save("메인.cpp");
+}
+
+
+2026-06-02 16:25:17.4084417
+
+
+========================================
+저장한 시간 - 2026-06-02 16:25:17.4084417
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+6/2 13주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 6.22 기말시험
+//
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main()
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in) {
+		cout << "error" << endl;
+		return 111;
+	}
+
+	vector<ZString> v;
+	//copy(istream_iterator<ZString>{in}, {}, back_inserter(v));
+
+	cout << "읽은 단어 수 : " << v.size() << endl;
+
+	// [문제] 어떤 단어가 가장 많이 사용되었는지 알고싶다
+	// 많이 사용된 단어부터 단어와 개수를 화면에 출력하시오
+	map<ZString, size_t> 단어와개수;
+
+	for (const ZString& zs : v) {
+		++단어와개수[zs];
+		//단어와개수.insert(pair<ZString, size_t>(zs, 단어와개수.count(zs) + 1));
+	}
+
+	for (const auto& [단어, 개수] : 단어와개수) {
+		cout << 단어 << 개수 << endl;
+	}
+
+
+	for (const std::pair<ZString, size_t>& p : 단어와개수) {
+		cout << p.first << "-" << p.second << endl;
+
+	}
+
+	cout << "개별 단어의 개수 : " << 단어와개수.size() << endl;
+
+	//multimap<size_t, ZString> 개수와단어;
+	//개수와단어.find(!);
+
+	multimap<size_t, ZString> 개수와단어;
+	for (const auto& [단어, 개수] : 단어와개수)
+		개수와단어.insert(make_pair(개수, 단어));
+
+	for (const auto& [개수, 단어] : 개수와단어)
+		cout << 단어 << "\t -" << 개수 << endl;
+
+
+
+	save("메인.cpp");
+}
+
+
+2026-06-02 16:45:42.4238635
+
+
+========================================
+저장한 시간 - 2026-06-02 16:45:42.4238635
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+6/2 13주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 6.22 기말시험
+//
+
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main()
+{
+	save("메인.cpp");
+
+	// [문제] 입력한 단어를 정렬한 후 출력하라.
+	set<ZString> s{ istream_iterator<ZString>{cin}, {} };
+
+	copy(s.begin(), s.end(), ostream_iterator < ZString > {cout, "\n"});
+	
+}
+
+
+2026-06-02 17:11:39.4476734
+
+
+========================================
+저장한 시간 - 2026-06-02 17:11:39.4476734
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+6/2 13주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 6.22 기말시험
+//
+
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <vector>
+#include <map>
+#include <random>
+#include <print> 
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+uniform_int_distribution uid{ 0, 10000 };
+
+
+
+int main()
+{
+	save("메인.cpp");
+
+	// map 어디에 쓸 수 있나?
+	// 유니폼 분포는 유니폼한가?
+	// 노멀분포를 화면에 출력
+
+	map <size_t, size_t> 유니폼;
+	for (int i = 0; i < 1'0000'0000; ++i) {
+		int num = uid(dre);
+		++유니폼[num / 200];
+
+	}
+
+	for (auto [구간, 개수] : 유니폼) {
+		println("[{%2}] - {}", 구간, 개수);
+	}
+	
+	
+
+
+	
+}
+
+
+2026-06-02 17:12:20.2841186
+
+
+========================================
+저장한 시간 - 2026-06-02 17:12:20.2841186
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+6/2 13주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 6.22 기말시험
+//
+
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <vector>
+#include <map>
+#include <random>
+#include <print> 
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+uniform_int_distribution uid{ 0, 10000 };
+
+
+
+int main()
+{
+	save("메인.cpp");
+
+	// map 어디에 쓸 수 있나?
+	// 유니폼 분포는 유니폼한가?
+	// 노멀분포를 화면에 출력
+
+	map <size_t, size_t> 유니폼;
+	for (int i = 0; i < 1'0000'0000; ++i) {
+		int num = uid(dre);
+		++유니폼[num / 200];
+
+	}
+
+	for (auto [구간, 개수] : 유니폼) {
+		println("[{:2}] - {}", 구간, 개수);
+	}
+	
+	
+
+
+	
+}
+
+
+2026-06-02 17:17:38.3464988
+
+
+========================================
+저장한 시간 - 2026-06-02 17:17:38.3464988
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+6/2 13주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 6.22 기말시험
+//
+
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <vector>
+#include <map>
+#include <random>
+#include <print> 
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+uniform_int_distribution uid{ 0, 10000 };
+normal_distribution nd{ 0.0, 1.0 };
+
+int main()
+{
+	save("메인.cpp");
+
+	// map 어디에 쓸 수 있나?
+	// 유니폼 분포는 유니폼한가?
+	// 노멀분포를 화면에 출력
+
+	map <size_t, size_t> 노멀;
+	for (int i = 0; i < 1'0000'0000; ++i) {
+		double num = nd(dre);
+		num = num * 5000 + 5000;
+		if (num < 0)
+			num = 0;
+		if (10000 < num)
+			num = 10000;
+
+		++노멀[static_cast<int>(num) / 200];
+
+	}
+
+	for (auto [구간, 개수] : 노멀) {
+		println("[{:2}] - {}", 구간, 개수);
+	}
+	
+	
+
+
+	
+}
+
+
+2026-06-02 17:18:07.4057169
+
+
+========================================
+저장한 시간 - 2026-06-02 17:18:07.4057169
+========================================
+
+/*
+2026년 1학기 STL 월56 화78
+6/2 13주 1일
+*/
+
+// 컴파일 환경 - Release / x64
+// vs 버전 - 17.14.27
+// 프로젝트 설정 - C++언어 표준 - /std:c++latest
+//               - C/C++ 언어 - SDL 검사 - 아니오
+
+// [메모]
+// 6.22 기말시험
+//
+
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <vector>
+#include <map>
+#include <random>
+#include <print> 
+#include "save.h"
+#include "ZString.h"
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+uniform_int_distribution uid{ 0, 10000 };
+normal_distribution nd{ 0.0, 0.05};
+
+int main()
+{
+	save("메인.cpp");
+
+	// map 어디에 쓸 수 있나?
+	// 유니폼 분포는 유니폼한가?
+	// 노멀분포를 화면에 출력
+
+	map <size_t, size_t> 노멀;
+	for (int i = 0; i < 1'0000'0000; ++i) {
+		double num = nd(dre);
+		num = num * 5000 + 5000;
+		if (num < 0)
+			num = 0;
+		if (10000 < num)
+			num = 10000;
+
+		++노멀[static_cast<int>(num) / 200];
+
+	}
+
+	for (auto [구간, 개수] : 노멀) {
+		println("[{:2}] - {}", 구간, 개수);
+	}
+	
+	
+
+
+	
+}
+
+

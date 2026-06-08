@@ -26,7 +26,7 @@ extern bool 관찰;
 
 default_random_engine dre;
 uniform_int_distribution uid{ 0, 10000 };
-normal_distribution nd{ 0.0, 0.05};
+normal_distribution nd{ 0.0, 0.05 };
 
 int main()
 {
@@ -52,11 +52,11 @@ int main()
 	for (auto [구간, 개수] : 노멀) {
 		println("[{:2}] - {}", 구간, 개수);
 	}
-	
-	
 
 
-	
+
+
+
 }
 
 

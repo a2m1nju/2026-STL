@@ -26,7 +26,8 @@ extern bool 관찰;
 
 default_random_engine dre;
 uniform_int_distribution uid{ 0, 10000 };
-normal_distribution nd{ 0.0, 0.05};
+
+
 
 int main()
 {
@@ -36,27 +37,21 @@ int main()
 	// 유니폼 분포는 유니폼한가?
 	// 노멀분포를 화면에 출력
 
-	map <size_t, size_t> 노멀;
+	map <size_t, size_t> 유니폼;
 	for (int i = 0; i < 1'0000'0000; ++i) {
-		double num = nd(dre);
-		num = num * 5000 + 5000;
-		if (num < 0)
-			num = 0;
-		if (10000 < num)
-			num = 10000;
-
-		++노멀[static_cast<int>(num) / 200];
+		int num = uid(dre);
+		++유니폼[num / 200];
 
 	}
 
-	for (auto [구간, 개수] : 노멀) {
+	for (auto [구간, 개수] : 유니폼) {
 		println("[{:2}] - {}", 구간, 개수);
 	}
-	
-	
 
 
-	
+
+
+
 }
 
 
