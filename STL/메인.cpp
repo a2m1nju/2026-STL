@@ -16,6 +16,7 @@
 
 #include <iostream>
 #include <unordered_set>
+#include <print>
 #include "save.h"
 #include "ZString.h"
 using namespace std;
@@ -31,6 +32,26 @@ int main()
 	cout << std::hash<int>{}(3) %8 << endl;
 	cout << std::hash<int>{}(4) %8 << endl;
 
+	unordered_multiset<int, hash<int>> ums;
+
+	// unordered_set의 메모리 구조
+	while (true) {
+		cout << endl;
+		cout << "추가할 int? : ";
+		int num;
+		cin >> num;
+
+		ums.insert(num);
+
+		for (int i = 0; i < ums.bucket_count(); ++i) {
+			print("[{: > 3}]", i);
+
+			for (auto j = ums.begin(i); j != ums.end(i); ++j) {
+				cout << " - " << *j;
+			}
+			cout << endl;
+		}
+	}
 	
 }
 
