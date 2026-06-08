@@ -10,51 +10,26 @@
 
 // [메모]
 // 6.22 기말시험
-//
+// STL unordered Associative Contaniner - 0(1)
+// - unordered_set / - unordered_multiset
+// - unordered_map / - unordered_multimap
 
 #include <iostream>
-#include <set>
-#include <algorithm>
-#include <vector>
-#include <map>
-#include <random>
-#include <print> 
+#include <unordered_set>
 #include "save.h"
 #include "ZString.h"
 using namespace std;
 extern bool 관찰;
 
-default_random_engine dre;
-uniform_int_distribution uid{ 0, 10000 };
-normal_distribution nd{ 0.0, 0.05};
-
 int main()
 {
 	save("메인.cpp");
 
-	// map 어디에 쓸 수 있나?
-	// 유니폼 분포는 유니폼한가?
-	// 노멀분포를 화면에 출력
-
-	map <size_t, size_t> 노멀;
-	for (int i = 0; i < 1'0000'0000; ++i) {
-		double num = nd(dre);
-		num = num * 5000 + 5000;
-		if (num < 0)
-			num = 0;
-		if (10000 < num)
-			num = 10000;
-
-		++노멀[static_cast<int>(num) / 200];
-
-	}
-
-	for (auto [구간, 개수] : 노멀) {
-		println("[{:2}] - {}", 구간, 개수);
-	}
-	
-	
-
+	// 1 , 2, 3, 4, -> 4, 7, 6, 1
+	cout << std::hash<int>{}(1) %8 << endl;
+	cout << std::hash<int>{}(2) %8 << endl;
+	cout << std::hash<int>{}(3) %8 << endl;
+	cout << std::hash<int>{}(4) %8 << endl;
 
 	
 }
