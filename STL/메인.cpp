@@ -18,32 +18,35 @@
 #include <unordered_set>
 #include <print>
 #include <numeric>
+#include<fstream>
 #include "save.h"
 #include "ZString.h"
 using namespace std;
 extern bool 관찰;
 
-class Dog {
-public:
+template <>
+struct hash<ZString> {
 	size_t operator()(const ZString& zs) const {
-		return 3;
+		return std::hash<std::string>{}(std::string(zs.begin(), zs.end()));
 	}
 };
 
 int main()
 {
 	save("메인.cpp");
+	
+	ifstream in { "메인.cpp" };
+	if (not in) {
+		return 123456;
+	}
 
-	// unordered_set의 메모리 구조
-
-	//unordered_multiset<ZString, hash<ZString>> ums{ "2026년", "6월", "8일", "월요일" };
-	unordered_multiset<ZString, Dog> ums{ "2026년", "6월", "8일", "월요일" };
+	unordered_multiset<ZString> ums{ "2026년", "6월", "8일", "월요일" };
 
 	for (int i = 0; i < ums.bucket_count(); ++i) {
 		print("[{: > 3}]", i);
 
 		for (auto j = ums.begin(i); j != ums.end(i); ++j) {
-			cout << " - " << *j;
+			cout << " -> " << *j;
 		}
 		cout << endl;
 	}
