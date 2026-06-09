@@ -9,130 +9,34 @@
 //               - C/C++ 언어 - SDL 검사 - 아니오
 
 // [메모]
-// 6.22 기말시험
-// 컨테이너 찾기 성능 비교
-// 1. 벡터
-// 2. 멀티셋
-// 3. 언오더드 멀티셋
-// 1000만개에서 10만개 찾기
+// 6.22 기말시험 -> 셋 오퍼레이션?? 뭐 공통단어 찾기? 
+// STL Algorithms
+// 1. Non - Modifying Sequence Operations
+// 2. Modifying Sequence Operations
+// 3. Sorting and relatied Operations
 
 #include <iostream>
-#include <unordered_set>
-#include <array>
-#include <vector>
-#include <set>
-#include <random>
 #include <algorithm>
-#include <chrono>
+#include <vector>
+#include <random>
 #include "save.h"
 #include "ZString.h"
 using namespace std;
 extern bool 관찰;
 
-const size_t NUM{ 1000'0000 };
-const size_t FNUM{ 1'0000 };
-array <int, NUM> num;
-array <int, FNUM>fnum;
-
-default_random_engine dre;
-uniform_int_distribution uid{ 1, 2000'0000 };
-
+default_random_engine dre{ random_device{}() };
 int main()
 {
 	save("메인.cpp");
 	
-	for (int& num : num)
-		num = uid(dre);
+	// 이번주 lotto 번호를 알려주자.
+	vector<int> v;
 
-	for (int& num : fnum)
-		num = uid(dre);
+	for (int i = 0; i < 45; ++i)
+		v.push_back(i + 1);
 
-	{// 벡터에서 찾기
-		cout << endl;
-		cout << "백터에서 찾는 중..." << endl;
-		vector<int> v{ num.begin(), num.end() };
-
-		size_t cnt{};
-
-		auto start = chrono::high_resolution_clock::now();
-		
-		for (int num : fnum) {
-			if (find(v.begin(), v.end(), num) != v.end())
-				++cnt;
-		}
-
-		auto stop = chrono::high_resolution_clock::now();
-
-		cout << FNUM << "중에 " << cnt << "개 찾음" << endl;
-		cout << "걸린시간 : " << chrono::duration_cast<chrono::microseconds>(stop - start) << endl;
-	}
-
-	{// 정렬된 벡터에서 찾기
-		cout << endl;
-		vector<int> v{ num.begin(), num.end() };
-
-		cout << "벡터 정렬하는 중 ..." << endl;
-		sort(v.begin(), v.end());
-
-		cout << "정렬된 벡터에서 찾는 중..." << endl;
-		size_t cnt{};
-
-		auto start = chrono::high_resolution_clock::now();
-
-		for (int num : fnum) {
-			if (binary_search(v.begin(), v.end(), num))
-				++cnt;
-		}
-
-		auto stop = chrono::high_resolution_clock::now();
-
-		cout << FNUM << "중에 " << cnt << "개 찾음" << endl;
-		cout << "걸린시간 : " << chrono::duration_cast<chrono::microseconds>(stop - start) << endl;
-	}
-
-	{// 셋에서 찾기
-		cout << endl;
-		cout << "set에서 찾는 중..." << endl;
-		set<int> s{ num.begin(), num.end() };
-
-		size_t cnt{};
-
-		auto start = chrono::high_resolution_clock::now();
-
-		for (int num : fnum) {
-			if (s.contains(num)) {
-				++cnt;
-			}
-		}
-
-		auto stop = chrono::high_resolution_clock::now();
-
-		cout << FNUM << "중에 " << cnt << "개 찾음" << endl;
-		cout << "걸린시간 : " << chrono::duration_cast<chrono::microseconds>(stop - start) << endl;
-	}
-
-	{// unordered_multiset에서 찾기
-		cout << endl;
-		cout << "unordered_multiset에서 찾는 중..." << endl;
-		unordered_multiset<int> us{ num.begin(), num.end() };
-
-		size_t cnt{};
-
-		auto start = chrono::high_resolution_clock::now();
-
-		for (int num : fnum) {
-			if (us.contains(num)) {
-				++cnt;
-			}
-		}
-
-		auto stop = chrono::high_resolution_clock::now();
-
-		cout << FNUM << "중에 " << cnt << "개 찾음" << endl;
-		cout << "걸린시간 : " << chrono::duration_cast<chrono::microseconds>(stop - start) << endl;
-	}
-
-
+	cout << "이번 주 이번호로 사세요" << endl;
+	sample(v.begin(), v.end(), ostream_iterator<int>{cout, " "}, 5, dre);
 }
 
 
