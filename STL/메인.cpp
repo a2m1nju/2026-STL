@@ -19,6 +19,9 @@
 #include <algorithm>
 #include <vector>
 #include <random>
+#include <thread>
+#include <chrono>
+#include <print>
 #include "save.h"
 #include "ZString.h"
 using namespace std;
@@ -30,13 +33,20 @@ int main()
 	save("메인.cpp");
 	
 	// 이번주 lotto 번호를 알려주자.
-	vector<int> v;
+	ZString zs("--> The quick brown fox jumps over the lazy dog ");
 
-	for (int i = 0; i < 45; ++i)
-		v.push_back(i + 1);
+	for (int i = 0; i < 10; ++i)
+		cout << endl;
 
-	cout << "이번 주 이번호로 사세요" << endl;
-	sample(v.begin(), v.end(), ostream_iterator<int>{cout, " "}, 5, dre);
+	while (true) {
+		print("{:^80}", string{ zs.begin(), zs.end() });
+		this_thread::sleep_for(200ms);
+		cout << '\r';
+		rotate(zs.begin(), zs.end() - 1, zs.end());
+	}
+
+
+
 }
 
 
