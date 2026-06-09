@@ -1,6 +1,6 @@
 /*
 2026년 1학기 STL 월56 화78
-6/8 13주 2일
+6/9 14주 1일
 */
 
 // 컴파일 환경 - Release / x64
@@ -11,42 +11,60 @@
 // [메모]
 // 6.22 기말시험 -> 셋 오퍼레이션?? 뭐 공통단어 찾기? 
 // STL Algorithms
-// 1. Non - Modifying Sequence Operations
-// 2. Modifying Sequence Operations
-// 3. Sorting and relatied Operations
+// 정렬 관련 알고리즘 - 복잡도 순서대로
 
 #include <iostream>
-#include <algorithm>
+#include <fstream>
 #include <vector>
-#include <random>
-#include <thread>
-#include <chrono>
+#include <algorithm>
 #include <print>
+#include <random>
 #include "save.h"
 #include "ZString.h"
 using namespace std;
 extern bool 관찰;
 
-default_random_engine dre{ random_device{}() };
+default_random_engine dre{ random_device{}()};
+
 int main()
 {
 	save("메인.cpp");
-	
-	// 이번주 lotto 번호를 알려주자.
-	ZString zs("--> The quick brown fox jumps over the lazy dog ");
 
-	for (int i = 0; i < 10; ++i)
-		cout << endl;
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in)
+		return 12345;
 
-	while (true) {
-		print("{:^80}", string{ zs.begin(), zs.end() });
-		this_thread::sleep_for(200ms);
-		cout << '\r';
-		rotate(zs.begin(), zs.end() - 1, zs.end());
+	vector<ZString> v{ istream_iterator<ZString>{in},{} };
+	cout << "모두 " << v.size() << "개의 단어를 읽었다" << endl;
+
+	sort(v.begin(), v.end());
+	auto newEnd = unique(v.begin(), v.end());
+	v.erase(newEnd, v.end());
+	cout << "중복을 제거한 단어수 : " << v.size() << endl; // 2949
+
+	shuffle(v.begin(), v.end(), dre);
+
+	//[문제] 길이가 홀수인것과 짝수인것으로 분리하라
+	// 앞에는 홀수, 뒤에는 짝수
+	// 홀수 앞에 짝수가 있으면 안된다.
+	// 홀수와 짝수가 각각 몇 개인지 출력하라
+
+	auto p = partition(v.begin(), v.end(), [](const ZString& a) {
+		return a.size() % 2;
+		});
+
+	cout << "홀수 : "<< distance(v.begin(), p) << endl;
+	for (auto i = v.begin(); i != p; ++i) {
+		cout << *i << " ";
 	}
+	cout << endl;
+	cout << endl;
 
-
-
+	cout << "짝수 : "<< distance( p, v.end()) << endl;
+	for (auto i = p; i != v.end(); ++i) {
+		cout << *i << " ";
+	}
+	cout << endl;
 }
 
 
