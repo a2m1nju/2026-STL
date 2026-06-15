@@ -41,29 +41,16 @@ int main()
 
 	ranges::shuffle(v, dre);
 
-	for (int num : v)
-		print("{:4}", num);
-	cout << endl;
+	// [문제] 앞에서 부터 20등까지만 따로 골라내줘
+	// 이때 1등부터 20등가지 순서는 정렬되어 있지 않아도 됨
 
-	// [문제] 3의 배수와 아닌것을 서로 분리하라
-	// 3의 배수가 몇 개인지 출력하라
-
-	ranges::partition(v, [](int num) {
-		if( num % 3 == 0)
-			return true;
-		return false;
-		});
-
-	auto p = partition(v.begin(), v.end(), [](int num) {
-		if (num % 3 == 0)
-			return true;
-		return false;
-		});
-	
-	cout << "3의 배수 개수 : " << p - v.begin() << endl;
-	for (auto i = v.begin(); i < p; ++i)
+	nth_element(v.begin(), v.begin() + 20, v.end());
+	for (auto i = v.begin(); i < v.begin() + 20; ++i)
 		print("{:4}", *i);
 	cout << endl;
+
+
+
 }
 
 
