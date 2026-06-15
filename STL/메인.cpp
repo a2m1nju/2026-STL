@@ -41,11 +41,11 @@ int main()
 
 	ranges::shuffle(v, dre);
 
-	// [문제] 앞에서 부터 20등까지만 따로 골라내줘
-	// 이때 1등부터 20등가지 순서는 정렬되어 있지 않아도 됨
+	// [문제] 1등 부터 20등까지 정렬
 
-	nth_element(v.begin(), v.begin() + 20, v.end());
-	for (auto i = v.begin(); i < v.begin() + 20; ++i)
+	partial_sort(v.begin(), v.begin() + 20, v.end());
+
+	for (auto i = v.begin(); i < v.end(); ++i)
 		print("{:4}", *i);
 	cout << endl;
 
