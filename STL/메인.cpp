@@ -24,6 +24,7 @@
 #include <print>
 #include <random>
 #include <numeric>
+#include <list>
 #include "save.h"
 #include "ZString.h"
 using namespace std;
@@ -35,18 +36,28 @@ int main()
 {
 	save("메인.cpp");
 
-	// 1부터 100까지 숫자를 준비한다.
-	vector<int> v(100);
-	ranges::iota(v, 1);
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (not in)
+		return 123455;
 
-	ranges::shuffle(v, dre);
+	vector<ZString> words;
+	words.reserve{ 30'0000 };
+	words.assign{ istream_iterator <ZString>{in}, {} };
 
-	// [문제] 전체 정렬
-	sort(v.begin(), v.end());
+	words.back().show();
 
-	for (auto i = v.begin(); i < v.end(); ++i)
-		print("{:4}", *i);
-	cout << endl;
+	// 중복 객체 제거
+	sort(words.begin(), words.end());
+	words.erase(unique(words.begin(), words.end()));
+
+	// 길이기준 오름차순으로 정렬
+	ranges::stable_sort(words, {}, &ZString::size);
+
+
+	for (const ZString& word : words)
+		cout << word << endl;
+
+
 
 
 
