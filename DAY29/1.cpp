@@ -49,7 +49,7 @@ int main()
 	// 3의 배수가 몇 개인지 출력하라
 
 	ranges::partition(v, [](int num) {
-		if( num % 3 == 0)
+		if (num % 3 == 0)
 			return true;
 		return false;
 		});
@@ -59,7 +59,7 @@ int main()
 			return true;
 		return false;
 		});
-	
+
 	cout << "3의 배수 개수 : " << p - v.begin() << endl;
 	for (auto i = v.begin(); i < p; ++i)
 		print("{:4}", *i);
