@@ -41,9 +41,8 @@ int main()
 
 	ranges::shuffle(v, dre);
 
-	// [문제] 1등 부터 20등까지 정렬
-
-	partial_sort(v.begin(), v.begin() + 20, v.end());
+	// [문제] 전체 정렬
+	sort(v.begin(), v.end());
 
 	for (auto i = v.begin(); i < v.end(); ++i)
 		print("{:4}", *i);
